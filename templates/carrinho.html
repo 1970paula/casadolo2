@@ -1,23 +1,65 @@
-<div class="produtos-carrinho" style="margin: 20px auto; max-width: 600px; font-family: sans-serif;">
-    <h3 style="color: #8B4513; border-bottom: 2px solid #8B4513; padding-bottom: 5px;">Os seus produtos selecionados:</h3>
-    
-    {% if produtos %}
-        <ul style="list-style: none; padding: 0;">
-            {% for produto in produtos %}
-                <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 8px; background: #fff; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
-                    <span><strong>{{ produto.nome }}</strong></span>
-                    <div>
-                        <span style="margin-right: 15px;">{{ "%.2f"|format(produto.preco) }}€</span>
-                        <a href="{{ url_for('remover_do_carrinho', produto_id=produto.id) }}" style="color: #dc3545; text-decoration: none; font-weight: bold;">❌ Remover</a>
-                    </div>
-                </li>
-            {% endfor %}
-        </ul>
-        <div style="text-align: right; margin-top: 15px; font-size: 1.3em; color: #8B4513;">
-            <strong>Total a Pagar: {{ "%.2f"|format(total) }}€</strong>
-        </div>
-    {% else %}
-        <p style="text-align: center; color: #666; font-style: italic; margin: 30px 0;">O seu carrinho de compras está vazio de momento.</p>
-    {% endif %}
-</div>
-<br>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrinho de Compras - Casa do Ló</title>
+</head>
+<body style="background-color: #FFF8F0; font-family: sans-serif; padding: 20px;">
+
+    <!-- 1. SECÇÃO DOS PRODUTOS SELECIONADOS (DINDAMICA) -->
+    <div class="produtos-carrinho" style="margin: 20px auto; max-width: 600px;">
+        <h3 style="color: #8B4513; border-bottom: 2px solid #8B4513; padding-bottom: 5px;">Os seus produtos selecionados:</h3>
+        
+        {% if produtos %}
+            <ul style="list-style: none; padding: 0;">
+                {% for produto in produtos %}
+                    <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+                        <span><strong>{{ produto.nome }}</strong></span>
+                        <div>
+                            <span style="margin-right: 15px; font-weight: bold;">{{ "%.2f"|format(produto.preco) }}€</span>
+                            <a href="{{ url_for('remover_do_carrinho', produto_id=produto.id) }}" style="color: #dc3545; text-decoration: none; font-weight: bold;">❌ Remover</a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div style="text-align: right; margin-top: 15px; font-size: 1.3em; color: #8B4513;">
+                <strong>Total a Pagar: {{ "%.2f"|format(total) }}€</strong>
+            </div>
+        {% else %}
+            <p style="text-align: center; color: #666; font-style: italic; margin: 30px 0;">O seu carrinho de compras está vazio de momento.</p>
+        {% endif %}
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #8B4513; max-width: 600px; margin: 30px auto;">
+
+    <!-- 2. SECÇÃO DO FORMULÁRIO DE PAGAMENTO E BOTÕES -->
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <p style="color: #8B4513; font-weight: bold; margin-bottom: 20px;">Tem itens selecionados no seu carrinho.</p>
+        
+        <h3 style="color: #8B4513;">Escolha o Meio de Pagamento</h3>
+        
+        <!-- O formulário envia os dados para a rota 'finalizar_compra' do app.py -->
+        <form action="{{ url_for('finalizar_compra') }}" method="POST" style="display: inline-block; text-align: left; margin: 20px 0;">
+            <div style="margin-bottom: 10px;">
+                <input type="radio" id="mbway" name="metodo_pagamento" value="MB WAY" checked>
+                <label Aksfor="mbway">📱 MB WAY</label>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <input type="radio" id="multibanco" name="metodo_pagamento" value="Referência Multibanco">
+                <label Aksfor="multibanco">🏦 Referência Multibanco</label>
+            </div>
+            <div style="margin-bottom: 20px;">
+                <input type="radio" id="cartao" name="metodo_pagamento" value="Cartão de Crédito">
+                <label Aksfor="cartao">💳 Cartão de Crédito</label>
+            </div>
+
+            <!-- Botões de Ação -->
+            <div style="text-align: center; margin-top: 20px;">
+                <a href="{{ url_for('index') }}" style="display: inline-block; background: #6c757d; color: white; padding: 12px 24px; text-decoration: none; border-radius: 20px; font-weight: bold; margin-right: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Continuar a Comprar</a>
+                <button type="submit" style="background: #00a859; color: white; padding: 12px 24px; border: none; border-radius: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">Finalizar Compra</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
