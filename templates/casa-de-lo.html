@@ -5,33 +5,33 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casa de Ló - Pastelaria Tradicional Portuguesa</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
 </head>
 <body>    
     <div class="container">
         <header>
             <h1>Casa de Ló</h1>
             <div class="logo-container" style="text-align: center; margin-top: 10px;">
-                <img src="{{ url_for('static', filename='pictures/casadelo_logo.PNG') }}" alt="Casa-de-Ló Logo">
+                <img src="{{ url_for('static', filename='pictures/casadelo_logo.PNG')}}" alt="Casa-de-Ló Logo">
             </div>
             <br>
             <div class="subtitle">Pastelaria Tradicional Portuguesa</div>
          <div class="nav-buttons">
-                <a href="{{ url_for('index_entrada') }}" class="vintage-btn">Voltar</a>
+                <a href="{{ url_for('index_entrada')}}" class="vintage-btn">Voltar</a>
                 <a href="#doces" class="vintage-btn">Os Nossos Doces</a>
                 <a href="#galeria" class="vintage-btn">Galeria</a>
-                <a href="{{ url_for('historia') }}" class="vintage-btn">A Nossa História</a>
-                <a href="{{ url_for('receitas') }}" class="vintage-btn">Receitas</a>
-                <a href="{{ url_for('blog') }}" class="vintage-btn">Blog e Dicas</a>
+                <a href="{{ url_for('historia')}}" class="vintage-btn">A Nossa História</a>
+                <a href="{{ url_for('receitas')}}" class="vintage-btn">Receitas</a>
+                <a href="{{ url_for('blog')}}" class="vintage-btn">Blog e Dicas</a>
                 <a href="#contactos" class="vintage-btn">Contactos</a>            
                 <!-- BOTÃO DO CARRINHO COM CONTADOR DINÂMICO -->
-                <a href="{{ url_for('carrinho') }}" class="vintage-btn" style="background-color: #8c6239; color: white;">🛒 Carrinho ({{ total_itens if total_itens is defined else 0 }})</a>
+                <a href="{{ url_for('carrinho')}}" class="vintage-btn" style="background-color: #8c6239; color: white;">🛒 Carrinho ({{ total_itens if total_itens is defined else 0 }})</a>
             </div>
 
         </header>
         <div class="vintage-border">
             <div class="polaroid">
-                <img src="{{ url_for('static', filename='pictures/avozinha.jpg') }}" alt="Avó">
+                <img src="{{ url_for('static', filename='pictures/avozinha.jpg')}}" alt="Avó">
                 <div class="polaroid-caption">Receitas Tradicionais desde 1946</div>
             </div>
             <p style="text-align: center;">Fundada em 1946 pela Dona Maria, a Casa de Ló nasceu do amor pela doçaria tradicional Portuguesa.</p>
@@ -44,51 +44,51 @@
             <div class="gallery">
             <div class="gallery-item">
 
-            <img src="{{ url_for('static', filename='pictures/pasteis-de-nata.jpg') }}" alt="Pastéis de Nata">
+            <img src="{{ url_for('static', filename='pictures/pasteis-de-nata.jpg')}}" alt="Pastéis de Nata">
             <div class="gallery-caption">Pastéis de Nata</div>					 
             </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/pao-de-lo.jpg') }}" alt="Pão de Ló">
+                        <img src="{{ url_for('static', filename='pictures/pao-de-lo.jpg')}}" alt="Pão de Ló">
                         <div class="gallery-caption">Pão de Ló</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/toucinho-do-ceu.jpg') }}" alt="Toucinho do Céu">
+                        <img src="{{ url_for('static', filename='pictures/toucinho-do-ceu.jpg')}}" alt="Toucinho do Céu">
                         <div class="gallery-caption">Toucinho do Céu</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/queijadas-sintra.jpg') }}" alt="Queijadas de Sintra">
+                        <img src="{{ url_for('static', filename='pictures/queijadas-sintra.jpg')}}" alt="Queijadas de Sintra">
                         <div class="gallery-caption">Queijadas de Sintra</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/ovos-moles.jpg') }}" alt="Ovos Moles">
+                        <img src="{{ url_for('static', filename='pictures/ovos-moles.jpg')}}" alt="Ovos Moles">
                         <div class="gallery-caption">Ovos Moles</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/bolo-de-mel.jpg') }}" alt="Bolo de Mel">
+                        <img src="{{ url_for('static', filename='pictures/bolo-de-mel.jpg')}}" alt="Bolo de Mel">
                         <div class="gallery-caption">Bolo de Mel</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/brisas-do-lis.jpg') }}" alt="Brisas do Lis">
+                        <img src="{{ url_for('static', filename='pictures/brisas-do-lis.jpg')}}" alt="Brisas do Lis">
                         <div class="gallery-caption">Brisas do Lis</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/arrufadas.jpg') }}" alt="Arrufadas">
+                        <img src="{{ url_for('static', filename='pictures/arrufadas.jpg')}}" alt="Arrufadas">
                         <div class="gallery-caption">Arrufadas</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/folar.jpg') }}" alt="Folar">
+                        <img src="{{ url_for('static', filename='pictures/folar.jpg')}}" alt="Folar">
                         <div class="gallery-caption">Folar</div>
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/marmelada.jfif') }}" alt="Marmelada de Marmelo">
+                        <img src="{{ url_for('static', filename='pictures/marmelada.jfif')}}" alt="Marmelada de Marmelo">
                         <div class="gallery-caption">Marmelada de Marmelo</div>
                     </div>
                         <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/geleia.jfif') }}" alt="Geleia de Marmelo">
+                        <img src="{{ url_for('static', filename='pictures/geleia.jfif')}}" alt="Geleia de Marmelo">
                         <div class="gallery-caption">Geleia de Marmelo</div>    
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', filename='pictures/compota.jfif') }}" alt="Compotas/Várias">
+                        <img src="{{ url_for('static', filename='pictures/compota.jfif')}}" alt="Compotas/Várias">
                         <div class="gallery-caption">Compotas/Várias</div>    
                     </div>
             </section>
@@ -103,7 +103,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€1,50</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=1) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=1)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>               
                 
@@ -115,7 +115,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€2,00</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=2) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=2)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>               
                 
@@ -127,7 +127,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€2,00</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=3) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=3)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>               
                 
@@ -139,7 +139,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€1,20</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=4) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=4)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>
 
@@ -151,7 +151,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€2,00</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=5) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=5)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>
 
@@ -163,7 +163,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€1,40</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=6) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=6)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>
 
@@ -175,7 +175,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€1,50</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=7) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=7)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>
 
@@ -187,7 +187,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€1,20</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=8) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=8)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>
 
@@ -199,7 +199,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€4,80</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=9) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=9)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>
 
@@ -211,7 +211,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€5,80</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=10) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=10)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>
 
@@ -223,7 +223,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€6,50</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=11) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=11)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>
                 <!-- 12. Compotas -->
@@ -234,7 +234,7 @@
                     </div>
                     <div style="text-align: right;">
                         <div style="margin-bottom: 5px;">€4,50</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=12) }}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=12)}}" style="background: #7f5539; color: white; padding: 4px 12px; text-decoration: none; border-radius: 20px; font-size: 0.85em; font-family: sans-serif; font-weight: bold;">Comprar</a>
                     </div>
                 </div>
             </section>

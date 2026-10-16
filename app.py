@@ -49,6 +49,14 @@ def finalizar_compra():
         <a href="{url_for('index')}" style="display: inline-block; background: #8B4513; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Voltar à Loja</a>
     </div>
     """
+@app.route('/adicionar_ao_carrinho/<int:produto_id>')
+def adicionar_ao_carrinho(produto_id):
+    # Lógica temporária simples para o url_for funcionar
+    return redirect(url_for('carrinho'))
+
+@app.route('/remover_do_carrinho/<int:produto_id>')
+def remover_do_carrinho(produto_id):
+    return redirect(url_for('carrinho'))
 
 if __name__ == '__main__':
     app.run(debug=True)
