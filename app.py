@@ -1,6 +1,20 @@
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, url_for, redirect, request, session
 
 app = Flask(__name__)
+# Chave secreta obrigatória para permitir o uso de sessões (session) no Flask
+app.secret_key = 'chave_segura_casa_de_lo_2026'
+
+# Dicionário global para mapear os IDs aos dados dos produtos
+# Certifique-se de que os IDs (1, 2, 3, etc.) correspondem aos que colocou no seu HTML
+PRODUTOS = {
+    1: {"nome": "Pastéis de Nata", "preco": 1.20},
+    2: {"nome": "Arrufadas", "preco": 1.50},
+    3: {"nome": "Folar", "preco": 8.00},
+    4: {"nome": "Marmelada", "preco": 4.50},
+    5: {"nome": "Fatia/kg Pão de Ló", "preco": 1.50},
+    6: {"nome": "Fatia/kg Pão de Ló Especial", "preco": 2.00},
+    7: {"nome": "Fatia/kg Toucinho do Céu", "preco": 2.50}
+}
 
 @app.route('/index-entrada')
 def index_entrada():
@@ -9,10 +23,10 @@ def index_entrada():
 @app.route('/')
 def index():
     doces = [
-        {"nome": "Pastéis de Nata", "imagem": "pictures/pasteis-de-nata.jpg", "preco": "1.20"},
-        {"nome": "Arrufadas", "imagem": "pictures/arrufadas.jpg", "preco": "1.50"},
-        {"nome": "Folar", "imagem": "pictures/folar.jpg", "preco": "8.00"},
-        {"nome": "Marmelada", "imagem": "pictures/marmelada.jfif", "preco": "4.50"}
+        {"id": 1, "nome": "Pastéis de Nata", "imagem": "pictures/pasteis-de-nata.jpg", "preco": "1.20"},
+        {"id": 2, "nome": "Arrufadas", "imagem": "pictures/arrufadas.jpg", "preco": "1.50"},
+        {"id": 3, "nome": "Folar", "imagem": "pictures/folar.jpg", "preco": "8.00"},
+        {"id": 4, "nome": "Marmelada", "imagem": "pictures/marmelada.jfif", "preco": "4.50"}
     ]
     return render_template('casa-de-lo.html', doces=doces)
 
@@ -30,13 +44,23 @@ def blog():
 
 @app.route('/carrinho')
 def carrinho():
-    return render_template('carrinho.html')
+    # Obtém a lista de itens guardados no carrinho da sessão (ou lista vazia se não houver nenhum)
+    itens_no_carrinho = session.get('carrinho', [])
+    
+    # Calcula a soma total de todos os produtos presentes no carrinho
+    total = sum(item['preco'] for item in itens_no_carrinho)
+    
+    # Passa os produtos e o valor total para o template HTML
+    return render_template('carrinho.html', produtos=itens_no_carrinho, total=total)
 
 @app.route('/finalizar-compra', methods=['POST'])
 def finalizar_compra():
     metodo = request.form.get('metodo_pagamento')
     if not metodo:
         metodo = "Não selecionado"
+        
+    # Limpa o carrinho da sessão após a compra ser finalizada com sucesso
+    session.pop('carrinho', None)
         
     return f"""
     <div style="text-align: center; margin-top: 50px; font-family: sans-serif; color: #8B4513;">
@@ -49,13 +73,35 @@ def finalizar_compra():
         <a href="{url_for('index')}" style="display: inline-block; background: #8B4513; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Voltar à Loja</a>
     </div>
     """
+
 @app.route('/adicionar_ao_carrinho/<int:produto_id>')
 def adicionar_ao_carrinho(produto_id):
-    # Lógica temporária simples para o url_for funcionar
+    # Garante que a lista de carrinho existe dentro da sessão do utilizador
+    if 'carrinho' not in session:
+        session['carrinho'] = []
+    
+    # Verifica se o ID clicado corresponde a um produto existente no nosso dicionário
+    if produto_id in PRODUTOS:
+        # Cria uma cópia dos dados e anexa o ID para controlo posterior no HTML
+        novo_item = PRODUTOS[produto_id].copy()
+        novo_item['id'] = produto_id
+        
+        # Adiciona o item à lista guardada na sessão
+        session['carrinho'].append(novo_item)
+        session.modified = True  # Notifica explicitamente o Flask de que a sessão sofreu alterações
+
     return redirect(url_for('carrinho'))
 
 @app.route('/remover_do_carrinho/<int:produto_id>')
 def remover_do_carrinho(produto_id):
+    if 'carrinho' in session:
+        # Percorre a lista do carrinho e remove apenas a primeira ocorrência do ID encontrado
+        for item in session['carrinho']:
+            if item['id'] == produto_id:
+                session['carrinho'].remove(item)
+                session.modified = True
+                break
+                
     return redirect(url_for('carrinho'))
 
 if __name__ == '__main__':

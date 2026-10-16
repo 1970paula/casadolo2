@@ -1,56 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O Meu Carrinho - Casa-de-Ló</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <div class="container" style="text-align: center; margin-top: 20px;">
-        <h1>O Meu Carrinho de Compras</h1>
-        
-        <div class="logo-container" style="margin-bottom: 20px;">
-            <img src="{{ url_for('static', filename='pictures/casadelo_logo.PNG') }}" alt="casa-de-lo Logo">
+<div class="produtos-carrinho" style="margin: 20px auto; max-width: 600px; font-family: sans-serif;">
+    <h3 style="color: #8B4513; border-bottom: 2px solid #8B4513; padding-bottom: 5px;">Os seus produtos selecionados:</h3>
+    
+    {% if produtos %}
+        <ul style="list-style: none; padding: 0;">
+            {% for produto in produtos %}
+                <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 8px; background: #fff; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                    <span><strong>{{ produto.nome }}</strong></span>
+                    <div>
+                        <span style="margin-right: 15px;">{{ "%.2f"|format(produto.preco) }}€</span>
+                        <a href="{{ url_for('remover_do_carrinho', produto_id=produto.id) }}" style="color: #dc3545; text-decoration: none; font-weight: bold;">❌ Remover</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div style="text-align: right; margin-top: 15px; font-size: 1.3em; color: #8B4513;">
+            <strong>Total a Pagar: {{ "%.2f"|format(total) }}€</strong>
         </div>
-
-        <!-- Secção que mostra os itens (exemplo genérico) -->
-        <div class="cart-items" style="margin-bottom: 30px;">
-            <p style="font-size: 1.2em;">Tem itens selecionados no seu carrinho.</p>
-        </div>
-
-        <!-- NOVA SECÇÃO: Meio de Pagamento e Finalização -->
-        <div class="checkout-section" style="margin-top: 30px; border-top: 2px solid #8B4513; padding-top: 20px; max-width: 500px; margin-left: auto; margin-right: auto;">
-            <h3 style="color: #8B4513; margin-bottom: 15px;">Escolha o Meio de Pagamento</h3>
-            
-            <form action="{{ url_for('finalizar_compra') }}" method="POST">
-                
-                <div class="payment-options" style="margin-bottom: 25px; text-align: left; display: inline-block;">
-                    <label style="display: block; margin-bottom: 12px; font-size: 1.1em; cursor: pointer;">
-                        <input type="radio" name="metodo_pagamento" value="mbway" checked style="margin-right: 10px;"> 📱 MB WAY
-                    </label>
-                    <label style="display: block; margin-bottom: 12px; font-size: 1.1em; cursor: pointer;">
-                        <input type="radio" name="metodo_pagamento" value="entidade_referencia" style="margin-right: 10px;"> 🏦 Referência Multibanco
-                    </label>
-                    <label style="display: block; margin-bottom: 12px; font-size: 1.1em; cursor: pointer;">
-                        <input type="radio" name="metodo_pagamento" value="cartao_credito" style="margin-right: 10px;"> 💳 Cartão de Crédito
-                    </label>
-                </div>
-
-                <br>
-
-                <!-- Botões de Ação do Carrinho -->
-                <div class="cart-buttons" style="margin-top: 10px;">
-                    <a href="{{ url_for('index') }}" class="vintage-btn" style="background-color: #6c757d; margin-right: 10px; text-decoration: none;">Continuar a Comprar</a>
-                    <button type="submit" class="vintage-btn" style="background-color: #28a745; border: none; cursor: pointer; color: white !important;">Finalizar Compra</button>
-                </div>
-                
-            </form>
-        </div>
-
-        <footer style="margin-top: 50px;">
-            <p>© 2025 Casa-de-Ló - Todos os direitos reservados</p>
-        </footer>
-    </div>
-</body>
-</html>
+    {% else %}
+        <p style="text-align: center; color: #666; font-style: italic; margin: 30px 0;">O seu carrinho de compras está vazio de momento.</p>
+    {% endif %}
+</div>
+<br>
