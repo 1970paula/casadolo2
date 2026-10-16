@@ -1,0 +1,49 @@
+ <!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Nossa História</title>
+       <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container" style="text-align: center; margin-top: 10px; margin-bottom: 20px;">
+        <header>
+            <h1 class="page-title">A Nossa História</h1>
+            <div class="logo-container">
+                <img src="{{ url_for('static', filename='pictures/casadelo_logo.PNG') }}" alt="Casa-de-Ló Logo">
+                <br>
+                <a class="vintage-btn" href="{{ url_for('index') }}">Voltar à Página Inicial</a>
+                <a class="vintage-btn" href="{{ url_for('receitas') }}">Receitas</a>
+                <a class="vintage-btn" href="{{ url_for('blog') }}">Blog e Dicas</a>
+            </div>
+        </header>
+        <div class="historia">
+            <h1>A Nossa História</h1>             
+            <p><strong>A Casa de Ló nasceu da paixão e dedicação da Dona Maria pela doçaria tradicional portuguesa. </strong> </p>
+            <p> Inspirada nas receitas conventuais e nos segredos culinários passados de geração em geração, a nossa pastelaria tornou-se um verdadeiro símbolo de tradição, sabor e qualidade.
+            </p>  
+            <p>Desde os primeiros dias, a Dona Maria dedicou-se a criar doces que despertam memórias e aquecem corações. Com ingredientes cuidadosamente selecionados e um profundo respeito pelas receitas de antigamente, manteve viva a essência da doçaria portuguesa. 
+            <p>Com o passar dos anos, a sua paixão foi transmitida aos filhos e netos, garantindo que cada especialidade fosse preparada com o mesmo carinho e autenticidade.               
+            </p>
+            <p>Hoje, a Casa de Ló continua a ser um espaço onde a tradição e o sabor se encontram. Orgulhamo-nos de oferecer uma variedade de doces conventuais e regionais, desde os icónicos pastéis de nata, da nossa marmelada, até ao nosso pão de ló, mantendo sempre o compromisso com a qualidade e o sabor genuíno.
+            </p>    
+            <p>Venha visitar-nos e embarque numa viagem sensorial pelos sabores mais autênticos de Portugal. Mais do que uma pastelaria, somos um pedaço da história e cultura portuguesa, onde cada doce conta uma história e cada sabor traz consigo uma recordação especial.
+            </p>              
+            <p><strong>Porque os melhores momentos da vida são aqueles que partilhamos.</strong></p>
+        </div>
+        
+
+        <div class="nav-buttons">
+            
+            <a href="#top" class="vintage-btn">Voltar ao Topo</a>
+        </div>
+
+        <footer>
+            <p>© 2025 Casa-de-Ló - Todos os direitos reservados</p>
+            <p>"Guardamos os sabores que a memória não esquece"</p>
+        </footer>
+    </div>
+</body>
+</html>

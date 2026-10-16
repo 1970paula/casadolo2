@@ -1,0 +1,310 @@
+/*Hero apresentação*/
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Times New Roman', serif;
+}
+ 
+.hero {
+  background-image: url('/static/pictures/hero.jpeg'); 
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 1em;
+  font-weight: bold;
+  align-items: center;
+  color: #845a13;  
+  text-align: center;
+}
+
+.titulo {
+  font-size: 4em;
+  font-family: 'Brush Script MT', cursive;
+  margin: 0 20px;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  background-color: #8b4513;
+  color: white;
+  text-decoration: none;
+  font-size: 1.2em;
+  border-radius: 8px;
+  transition: background-color 0.1s;
+}
+
+/* Polaroid estilo tradicional */
+.stamp {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 80px;
+  opacity: 0.8;
+  transform: rotate(15deg);
+}
+
+.polaroid {
+  background: rgba(236, 134, 61, 0.378);
+  padding: 10px 10px 30px 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: rotate(-2deg);
+  margin: 20px auto;
+  width: 80%;
+  max-width: 300px;
+}
+
+.polaroid img {
+  width: 100%;
+  border: 1px solid #eee;
+}
+
+.polaroid-caption {
+  text-align: center;
+  font-family: 'Brush Script MT', cursive;
+  margin-top: 10px;
+  color: #5a4a3a;
+}
+/*
+estilos gerais
+*/
+body {
+    font-family: 'Times New Roman', serif;
+    background: 
+      linear-gradient(rgba(242, 213, 169, 0.3), rgba(242, 213, 169, 0.3)), 
+      url('pics/bakery-pattern-wallpaper-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #8e551c;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+
+  }
+    
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 2px dashed #c9a66b;
+    font-size: 0.9em;
+    color: #7a6a5a;
+    animation: fadeIn 1.5s ease-in-out 1.5s backward;
+  }
+  
+  /*
+  estilos e tamanho de letra
+  */
+  h1, h2 {
+    font-family: 'Brush Script MT', cursive;
+    color: #8b4513;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 3.5em;
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  h2 {
+    font-size: 2.5em;
+    margin: 40px 0 20px;
+  }
+  
+  .subtitle {
+    font-style: italic;
+    font-size: 1.2em;
+    color: #7a6a5a;
+    text-align: center;
+    margin-top: -10px;
+  }
+  
+  /*
+  animação de páginas
+  */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes logoFadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /*
+  componentes
+  */
+  .casa-de-lo-logo {
+    display: block;
+    width: 150px;
+    height: auto;
+    text-align: center;
+    margin: 10px auto 20px;
+    animation: logoFadeIn 2s ease-in-out;
+  }
+  
+  .vintage-border {
+    border: 8px solid transparent;
+    padding: 15px;
+    border-image: url('https://www.transparenttextures.com/patterns/old-map.png') 30 round;
+    background-color: rgba(242, 207, 151, 0.7);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .vintage-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    margin: 10px 5px;
+    background-color: #8b4513;
+    color: #f8f1e5;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Palatino Linotype', 'Book Antiqua', serif;
+    font-size: 0.9em;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .vintage-btn:hover {
+    background-color: #6b4f2e;
+    transform: translateY(-2px);
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .nav-buttons {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  /*
+  Content Elements 
+  */
+.content-section,
+.historia,
+.recipe,
+.blog-post{
+  
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+  text-align:justify;
+  font-family: 'Georgia', serif;
+  font-size: 1.1em;
+  color: #774019;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  background-color:rgba(242, 207, 151, 0.7);
+  margin: 30px 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2)
+   
+}
+  
+  /*
+  galeria
+  */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin: 30px 0;
+  }
+  
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 8px solid rgba(139, 69, 19, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: sepia(30%);
+    transition: all 0.3s ease;
+  }
+  
+  .gallery-item:hover img {
+    filter: sepia(10%);
+  }
+  
+  .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(139, 69, 19, 0.8);
+    color: #f8f1e5;
+    padding: 5px;
+    font-size: 0.8em;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+  }
+ 
+
+/*  Seções com sombras para destacar blocos */
+section {
+  background-color: #f7e6d6;
+  margin: 30px 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Doces Tradicionais */
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px dotted #d2b48c;
+  padding: 10px 0;
+}
+
+.item-name {
+  font-weight: bold;
+  color: #6b3e26;
+}
+
+.item-desc {
+  font-size: 0.95em;
+  color: #5a3a2c;
+  margin-top: 4px;
+}
+
+
+
+
+
+ 

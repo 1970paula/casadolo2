@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa-de-Ló</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            animation: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1 class="titulo">Casa de Ló</h1>
+        <p class="subtitulo" >Guardamos os sabores<br> que a memória não esquece</p>
+        <!-- Altera de 'casa_de_lo' para 'index' -->
+<a href="{{ url_for('index') }}" class="vintage-btn">A Nossa Casa</a>
+
+    </div>
+</body>
+</html>

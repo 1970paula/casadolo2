@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas - Casa-de-Ló</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">     
+</head>
+<body> 
+    <a id="top"></a>
+    <div class="container">
+        <h1>Receitas Tradicionais</h1>
+        <div class="logo-container" style="text-align: center; margin-top: 10px;">
+            <img src="{{ url_for('static', filename='pictures/casadelo_logo.PNG') }}" alt="casa-de-lo Logo" >
+            <br>
+            <a href="{{ url_for('index') }}" class="vintage-btn">Voltar à Página Inicial</a>
+            <a href="{{ url_for('blog') }}" class="vintage-btn">Blog e Dicas</a>
+        </div>
+    <div class="container">           
+        <div class="recipe">
+            <h2>Pastéis de Nata</h2>
+            <p><strong>Ingredientes:</strong> 1 rolo de massa folhada, 6 gemas, 200g de açúcar, 500ml de leite, 50g de farinha, 1 pau de canela e casca de limão.</p>
+            <p><strong>Modo de preparo:</strong> Ferva o leite com a casca de limão e o pau de canela. Misture o açúcar e a farinha em uma tigela e adicione aos poucos o leite quente. 
+                Acrescente as gemas e mexa bem. Retire a casca de limão e o pau de canela. Despeje em forminhas forradas com massa folhada e asse no forno a 220°C por 15-20 minutos até dourar.</p>
+        </div>
+        
+        <div class="recipe">
+            <h2>Pão de Ló</h2>
+            <p><strong>Ingredientes:</strong> 6 ovos, 250g de açúcar, 150g de farinha e 1 colher de chá de fermento.</p>
+            <p><strong>Modo de preparo:</strong> Bata os ovos com o açúcar até dobrar de volume. Incorpore delicadamente a farinha peneirada com o fermento. Despeje em uma forma untada e asse no forno a 180°C por aproximadamente 30 minutes.</p>
+        </div>
+        
+        <div class="recipe">
+            <h2>Toucinho do Céu</h2>
+            <p><strong>Ingredientes:</strong> 250g de açúcar, 6 gemas, 100g de amêndoas moídas, 50g de farinha e 100ml de água.</p>
+            <p><strong>Modo de preparo:</strong> Faça uma calda com o açúcar e a água até atingir ponto de fio. Adicione as gemas batidas e as amêndoas moídas, mexendo bem. Acrescente a farinha e leve ao forno a 180°C em uma forma untada por cerca de 25 minutos.</p>
+        </div>
+        
+        <div class="recipe">
+            <h2>Queijadas de Sintra</h2>
+            <p><strong>Ingredientes:</strong> 250g de queijo fresco, 200g de açúcar, 2 ovos, 50g de farinha, 1 colher de chá de canela.</p>
+            <p><strong>Modo de preparo:</strong> Amasse o queijo e misture com o açúcar e os ovos. Adicione a farinha e a canela. Distribua em forminhas e asse a 180°C por 30 minutos.</p>
+        </div>
+        
+        <div class="recipe">
+            <h2>Ovos Moles de Aveiro</h2>
+            <p><strong>Ingredientes:</strong> 200g de açúcar, 100ml de água, 6 gemas, 10 moldes de hóstia</p>
+            <p><strong>Modo de preparo:</strong> Faça uma calda com açúcar e água até ponto de fio. Retire do lume, deixe arrefecer e adicione as gemas peneiradas, volte a pôr no lume baixo e mexa até engrossar, leve o doce de ovos ao frigorífico por 2 horas, depois de frio verta por cima dos moldes de hóstia e cole-os com clara de ovo. Recorte os moldes, e pode servir.</p>
+        </div>
+        
+        <div class="recipe">
+            <h2>Bolo de Mel</h2>
+            <p><strong>Ingredientes:</strong> 250g de mel, 200g de açúcar, 4 ovos, 300g de farinha, 1 colher de chá de especiarias (canela, cravo e noz-moscada).</p>
+            <p><strong>Modo de preparo:</strong> Misture o mel e o açúcar. Acrescente os ovos e a farinha com as especiarias. Asse a 180°C por 40 minutos.</p>
+        </div>
+        
+        <div class="recipe">
+            <h2>Brisas de Lis</h2>
+            <p><strong>Ingredientes:</strong> 6 gemas, 200g of açúcar, 100g de amêndoas moídas.</p>
+            <p><strong>Modo de preparo:</strong> Misture todos os ingredientes e distribua em forminhas. Asse a 180°C por 20 minutos.</p>
+        </div>
+        
+        <div class="recipe">
+            <h2>Arrufadas</h2>
+            <p><strong>Ingredientes:</strong> 500g de farinha, 100g de açúcar, 2 ovos, 200ml de leite morno, 10g de fermento biológico.</p>
+            <p><strong>Modo de preparo:</strong> Misture os ingredientes e deixe crescer por 2 horas. Modele as arrufadas e asse a 180°C por 25 minutos.</p>
+        </div>
+        
+        <div class="recipe">
+            <h2>Folar</h2>
+            <p><strong>Ingredientes:</strong> 500g de farinha, 100g de açúcar, 3 ovos, 100g de manteiga, 10g de fermento biológico, 1 colher de chá de canela.</p>
+            <p><strong>Modo de preparo:</strong> Misture os ingredientes e sove até obter uma massa lisa. Deixe crescer por 2 horas. Modele e asse a 180°C por 30 minutos.</p>
+        </div>
+
+        <div class="recipe">
+            <h2>Marmelada</h2>
+            <p><strong>Ingredientes:</strong> 1kg de marmelos, 800g de açúcar, 1 limão (sumo).</p>
+            <p><strong>Modo de preparo:</strong> Lave e descasque os marmelos, retire as sementes. Corte-os em pedaços pequenos e coloque em uma panela com o açúcar e o sumo de limão. Cozinhe em fogo baixo, mexendo ocasionalmente, até os marmelos ficarem macios e a mistura engrossar. 
+                Bata com a varinha mágica ou passe por um passe-vite para obter uma textura homogênea. Coloque em potes esterilizados e deixe arrefecer antes de tapar.</p>
+        </div>
+
+        <div class="recipe">
+            <h2>Geleia de Marmelo</h2>
+            <p><strong>Ingredientes:</strong> Cascas e caroços de marmelos, água, açúcar (mesma quantidade do peso do líquido obtido).</p>
+            <p><strong>Modo de preparo:</strong> Coloque as cascas e caroços dos marmelos em uma panela e cubra com água. Cozinhe em fogo baixo até que fiquem macios. Coe o líquido com um pano fino ou um coador de rede fina, sem pressionar. 
+                Meça o líquido obtido e adicione a mesma quantidade de açúcar. Leve ao lume novamente, mexa até atingir o ponto de geleia. Armazene em potes esterilizados e deixe arrefecer antes de tapar.</p>
+        </div>
+
+        <div class="recipe">
+            <h2>Compotas Caseiras</h2>
+            <p><strong>Ingredientes:</strong> 1kg de fruta (morangos, pêssegos, figos, etc.), 800g de açúcar, sumo de 1 limão.</p>
+            <p><strong>Modo de preparo:</strong> Lave e corte a fruta em pedaços pequenos. Coloque em uma panela com o açúcar e o sumo de limão. Cozinhe em lume baixo e mexa ocasionalmente, até a fruta se desfazer e a mistura engrossar. Retire a espuma que formar na superfície. Bata com a varinha mágica, se desejar uma textura mais homogênea. Coloque em potes esterilizados enquanto ainda estiver quente, tape bem e vire os potes de cabeça para baixo para criar vácuo. Deixe arrefecer antes de armazenar.</p>
+        </div>
+
+        
+        <div class="nav-buttons">
+            <a href="#top" class="vintage-btn">Voltar ao Topo</a>
+        </div>
+
+        <footer>
+            <p>© 2025 Casa-de-Ló - Todos os direitos reservados</p>
+            <p>"Guardamos os sabores que a memória não esquece"</p>
+        </footer>
+    </div>
+</body>
+</html>

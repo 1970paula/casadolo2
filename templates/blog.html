@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Blog de Dicas Culinárias - Casa-de-Ló</title>    
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body> 
+    <div class="container">
+       
+        <h1>Blog de Dicas Culinárias</h1>
+        <div class="logo-container" style="text-align: center; margin-top: 10px;">
+            <img src="{{ url_for('static', filename='pictures/casadelo_logo.PNG') }}" alt="casa-de-lo Logo" >
+            <br>
+            <a href="{{ url_for('index') }}" class="vintage-btn">Voltar à Página Inicial</a>
+        </div>
+        
+        <div class="blog-post">
+            <h2>Como obter uma massa de bolo fofinha?</h2>
+            <p>Peneire sempre a farinha e os ingredientes secos para evitar grumos e obter uma textura mais leve. Além disso, bata bem os ovos e o açúcar até formar um creme esbranquiçado e aerado.</p>
+        </div>
+
+        <div class="blog-post">
+            <h2>O segredo para um pão caseiro perfeito</h2>
+            <p>Deixe a massa descansar o tempo suficiente para que o fermento atue bem. Uma boa fermentação garante um pão macio e saboroso!</p>
+        </div>
+
+        <div class="blog-post">
+            <h2>Como evitar que o caramelo fique amargo?</h2>
+            <p>Não deixe o açúcar cozinhar por muito tempo. Assim que atingir uma cor dourada, retire do lume e adicione um pouco de água quente ou manteiga para interromper a caramelização.</p>
+        </div>
+
+        <div class="blog-post">
+            <h2>Dica para claras em neve firmes</h2>
+            <p>Adicione uma pitada de sal ou algumas gotas de limão às claras antes de bater. Isso ajuda a estabilizar a espuma e deixa-as mais firmes.</p>
+        </div>
+
+        <div class="blog-post">
+            <h2>Como conservar ervas frescas por mais tempo</h2>
+            <p>Envolva as ervas em papel de cozinha úmido e guarde num saco plástico no frigorífico. Assim, elas permanecem frescas por mais dias.</p>
+        </div>
+
+        <div class="blog-post">
+            <h2>Evite lágrimas ao cortar cebola</h2>
+            <p>Coloque a cebola no frigorífico por cerca de 30 minutos antes de cortar, ou corte próximo a uma fonte de ar(janela), para reduzir os gases que causam a ardência nos olhos.</p>
+        </div>
+
+        <div class="blog-post">
+            <h2>Dica para arroz soltinho</h2>
+            <p>Refogue bem o arroz no óleo antes de adicionar a água. Além disso, utilize sempre a proporção correta de água para que o arroz cozinhe sem empapar.</p>
+        </div>
+        
+        <div class="nav-buttons">
+           
+            <a href="#top" class="vintage-btn">Voltar ao Topo</a>
+
+        </div>
+         <iframe
+    src="https://www.chatbase.co/chatbot-iframe/1s_LG9yJl5t5h9jul35qv"
+    width="50%"
+    style="height: 80%; min-height: 400px"
+    frameborder="0"
+></iframe>
+        
+        <footer role="contentinfo">
+            <p>© Casa-de-Ló - Todos os direitos reservados</p>
+            <p>"Guardamos os sabores que a memória não esquece"</p>
+        </footer>
+       
+    </div>
+</body>
+</html>
