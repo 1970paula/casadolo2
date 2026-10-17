@@ -25,14 +25,13 @@ def index_entrada():
     return render_template('index.html')
 
 @app.route('/')
+
 def index():
-    doces = [
-        {"id": 1, "nome": "Pastéis de Nata", "imagem": "pictures/pasteis-de-nata.jpg", "preco": "1.20"},
-        {"id": 2, "nome": "Arrufadas", "imagem": "pictures/arrufadas.jpg", "preco": "1.50"},
-        {"id": 3, "nome": "Folar", "imagem": "pictures/folar.jpg", "preco": "8.00"},
-        {"id": 4, "nome": "Marmelada", "imagem": "pictures/marmelada.jfif", "preco": "4.50"}
-    ]
-    return render_template('casa-de-lo.html', doces=doces)
+    # Conta quantos itens estão guardados no carrinho da sessão do utilizador
+    quantidade_itens = len(session.get('carrinho', []))
+    
+    # Renderiza o seu ficheiro HTML diretamente, enviando apenas a quantidade
+    return render_template('casa-de-lo.html', quantidade=quantidade_itens)
 
 @app.route('/historia')
 def historia():
