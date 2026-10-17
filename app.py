@@ -5,14 +5,13 @@ app = Flask(__name__)
 app.secret_key = 'chave_segura_casa_de_lo_2026'
 
 # Dicionário global para mapear os IDs aos dados dos produtos
-# Certifique-se de que os IDs (1, 2, 3, etc.) correspondem aos que colocou no seu HTML
 PRODUTOS = {
     1: {"nome": "Pastéis de Nata uni.", "preco": 1.50},
-    2: {"nome": "Fatia/kg Pão de Ló", "preco": 2.00},
-    3: {"nome": "Fatia/kg Toucinho do Céu", "preco": 2.00},
+    2: {"nome": "Pão de Ló de Margaride", "preco": 20.00},      # Atualizado (€20.00)
+    3: {"nome": "Toucinho do Céu Conventual", "preco": 26.00},  # Atualizado (€26.00)
     4: {"nome": "Queijadas de Sintra uni.", "preco": 1.20},
     5: {"nome": "Ovos Moles uni.", "preco": 2.00},
-    6: {"nome": "Fatia/Kg Bolo de Mel", "preco": 1.40},
+    6: {"nome": "Bolo de Mel da Madeira", "preco": 16.00},      # Atualizado (€16.00)
     7: {"nome": "Brisas do Lis uni.", "preco": 1.50},
     8: {"nome": "Arrufadas uni.", "preco": 1.20},
     9: {"nome": "Folar", "preco": 4.80},
@@ -20,7 +19,6 @@ PRODUTOS = {
     11: {"nome": "Geleia de Marmelo/Kg", "preco": 6.50},
     12: {"nome": "Compotas/Várias", "preco": 4.50}
 }
-
 
 @app.route('/index-entrada')
 def index_entrada():
