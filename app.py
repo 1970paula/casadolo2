@@ -94,7 +94,7 @@ def adicionar_ao_carrinho(produto_id):
         session['carrinho'].append(novo_item)
         session.modified = True  # Notifica explicitamente o Flask de que a sessão sofreu alterações
 
-    return redirect(url_for('carrinho'))
+    return redirect(url_for('index'))
 
 @app.route('/remover_do_carrinho/<int:produto_id>')
 def remover_do_carrinho(produto_id):
