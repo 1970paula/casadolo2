@@ -25,7 +25,8 @@
                 <a href="{{ url_for('blog')}}" class="vintage-btn">Blog e Dicas</a>
                 <a href="#contactos" class="vintage-btn">Contactos</a>            
                 <!-- BOTÃO DO CARRINHO COM CONTADOR DINÂMICO -->
-                <a href="{{ url_for('carrinho') }}" class="vintage-btn">🛒 Carrinho (0)</a>
+                <a href="{{ url_for('carrinho')}}" class="vintage-btn">🛒 Carrinho ({{ quantidade }})</a>
+
 
             </div>
 
