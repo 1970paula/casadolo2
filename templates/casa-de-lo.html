@@ -7,7 +7,22 @@
     <title>Casa de Ló - Pastelaria Tradicional Portuguesa</title>
    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
 </head>
-<body>    
+<body>  
+    <!-- Bloco Flutuante no Canto Superior Direito -->
+<div class="auth-buttons" style="position: absolute; top: 20px; right: 20px; z-index: 1000; text-align: right; display: flex; align-items: center; gap: 10px;">
+    {% if session.get('utilizador_nome') %}
+        <!-- Se o cliente estiver com o login feito -->
+        <span style="font-family: sans-serif; color: #8B4513; font-size: 0.95em; background: #fff8f0; padding: 6px 12px; border-radius: 15px; border: 1px solid #7f5539;">
+            Olá, <strong>{{ session['utilizador_nome'] }}</strong>!
+        </span>
+        <a href="{{ url_for('logout') }}" class="vintage-btn" style="background: #dc3545; padding: 6px 15px; font-size: 0.85em;">🚪 Sair</a>
+    {% else %}
+        <!-- Se for um visitante anónimo -->
+        <a href="{{ url_for('login') }}" class="vintage-btn" style="padding: 6px 15px; font-size: 0.85em;">🔑 Iniciar Sessão</a>
+        <a href="{{ url_for('registo') }}" class="vintage-btn" style="background: #6c757d; padding: 6px 15px; font-size: 0.85em;">📝 Criar Conta</a>
+    {% endif %}
+</div>
+  
     <div class="container">
         <header>
             <h1>Casa de Ló</h1>
