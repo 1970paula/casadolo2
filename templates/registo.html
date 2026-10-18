@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Conta - Casa do Ló</title>
+</head>
+<body style="background-color: #FFF8F0; font-family: sans-serif; padding: 30px; text-align: center;">
+
+    <div style="max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); text-align: left;">
+        <h2 style="color: #8B4513; text-align: center; margin-bottom: 20px;">📝 Criar Conta</h2>
+        
+        <form action="{{ url_for('registo') }}" method="POST">
+            <div style="margin-bottom: 12px;">
+                <label style="font-weight: bold; color: #7f5539;">ID Cliente (Ex: CLI008):</label>
+                <input type="text" name="id_cliente" required style="width:100%; padding:8px; border-radius:4px; border:1px solid #ccc; box-sizing: border-box;">
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <label style="font-weight: bold; color: #7f5539;">Nome ou Entidade:</label>
+                <input type="text" name="nome_entidade" required style="width:100%; padding:8px; border-radius:4px; border:1px solid #ccc; box-sizing: border-box;">
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <label style="font-weight: bold; color: #7f5539;">Tipo de Cliente:</label>
+                <select name="tipo_cliente" style="width:100%; padding:8px; border-radius:4px; border:1px solid #ccc; box-sizing: border-box;">
+                    <option value="Particular (B2C)">Particular (B2C)</option>
+                    <option value="Empresa (B2B)">Empresa (B2B)</option>
+                </select>
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <label style="font-weight: bold; color: #7f5539;">Telemóvel:</label>
+                <input type="text" name="telemovel" required style="width:100%; padding:8px; border-radius:4px; border:1px solid #ccc; box-sizing: border-box;">
+            </div>
+            
+            <div style="margin-bottom: 12px;">
+                <label style="font-weight: bold; color: #7f5539;">E-mail:</label>
+                <input type="email" name="email" required style="width:100%; padding:8px; border-radius:4px; border:1px solid #ccc; box-sizing: border-box;">
+            </div>
+            
+            <div style="margin-bottom: 20px;">
+                <label style="font-weight: bold; color: #7f5539;">Palavra-passe:</label>
+                <input type="password" name="senha" required style="width:100%; padding:8px; border-radius:4px; border:1px solid #ccc; box-sizing: border-box;">
+            </div>
+            
+            <button type="submit" style="background:#7f5539; color:white; padding:12px; width:100%; border:none; border-radius:20px; font-weight:bold; cursor:pointer; font-size: 1em;">Registar Conta</button>
+        </form>
+        
+        <p style="margin-top: 20px; text-align: center; font-size: 0.9em; color: #666;">
+            Já tem uma conta? <a href="{{ url_for('login') }}" style="color: #8B4513; font-weight: bold; text-decoration: none;">Inicie sessão aqui</a>
+        </p>
+    </div>
+
+</body>
+</html>
