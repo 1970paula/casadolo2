@@ -3,16 +3,19 @@ from flask import Flask, render_template, url_for, redirect, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+# Chave secreta obrigatória para o funcionamento seguro das sessões (session)
 app.secret_key = 'chave_segura_casa_de_lo_2026'
 
-# Nome real do seu ficheiro SQLite
+# Nome exato da sua base de dados SQLite
 DATABASE = 'casa_de_lo.db' 
 
+# Função auxiliar para estabelecer ligação com o ficheiro SQLite
 def ligar_bd():
     conn = sqlite3.connect(DATABASE)
     conn.row_factory = sqlite3.Row  
     return conn
 
+# Dicionário centralizado de controlo de preços e produtos para o carrinho
 PRODUTOS = {
     1: {"nome": "Pastéis de Nata uni.", "preco": 1.50},
     2: {"nome": "Pão de Ló de Margaride", "preco": 20.00},
@@ -28,6 +31,21 @@ PRODUTOS = {
     12: {"nome": "Compotas/Várias", "preco": 4.50}
 }
 
+# ==========================================
+# ROTAS INSTITUCIONAIS E DE NAVEGAÇÃO
+# ==========================================
+@app.route('/historia')
+def historia():
+    return render_template('historia.html')
+
+@app.route('/receitas')
+def receitas():
+    return render_template('receitas.html')
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
+
 @app.route('/')
 def index_entrada():
     return render_template('index.html')
@@ -38,7 +56,7 @@ def index():
     return render_template('casa-de-lo.html', quantidade=quantidade_itens)
 
 # ==========================================
-# ROTA DE REGISTO (Guarda dados no SQLite)
+# GESTÃO DE UTILIZADORES (INTEGRAÇÃO SQLITE)
 # ==========================================
 @app.route('/registo', methods=['GET', 'POST'])
 def registo():
@@ -50,12 +68,13 @@ def registo():
         email = request.form.get('email')
         senha = request.form.get('senha')
         
+        # Gera o hash criptográfico seguro a partir da palavra-passe digitada
         senha_encriptada = generate_password_hash(senha)
         
         try:
             db = ligar_bd()
             cursor = db.cursor()
-            # Mapeamento exato das colunas da sua tabela reais
+            # Mapeamento correspondente à estrutura da sua tabela 'clientes'
             cursor.execute(
                 """INSERT INTO clientes 
                 (id_cliente, nome_entidade, tipo_cliente, telemovel, email, valor_total, valor_em_divida, password) 
@@ -70,9 +89,6 @@ def registo():
             
     return render_template('registo.html')
 
-# ==========================================
-# ROTA DE LOGIN (Valida dados no SQLite)
-# ==========================================
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -81,11 +97,12 @@ def login():
         
         db = ligar_bd()
         cursor = db.cursor()
+        # Query corrigida com a instrução FROM para leitura da tabela
         cursor.execute("SELECT * FROM clientes WHERE email = ?", (email,))
         utilizador = cursor.fetchone()
         db.close()
         
-        # Mapeia com a sua coluna real 'password'
+        # Validação segura comparando o texto digitado com o hash gravado
         if utilizador and check_password_hash(utilizador['password'], senha_inserida):
             session['utilizador_id'] = utilizador['id_cliente']
             session['utilizador_nome'] = utilizador['nome_entidade']
@@ -101,6 +118,9 @@ def logout():
     session.pop('utilizador_nome', None)
     return redirect(url_for('index_entrada'))
 
+# ==========================================
+# OPERAÇÕES DO CARRINHO DE COMPRAS
+# ==========================================
 @app.route('/carrinho')
 def carrinho():
     itens_no_carrinho = session.get('carrinho', [])
@@ -131,7 +151,7 @@ def remover_do_carrinho(produto_id):
 @app.route('/finalizar-compra', methods=['POST'])
 def finalizar_compra():
     session.pop('carrinho', None) 
-    return "Compra finalizada!"
+    return "Compra finalizada com sucesso!"
 
 if __name__ == '__main__':
     app.run(debug=True)
