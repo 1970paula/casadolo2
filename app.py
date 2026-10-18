@@ -81,7 +81,7 @@ def login():
         
         db = ligar_bd()
         cursor = db.cursor()
-        cursor.execute("SELECT * clientes WHERE email = ?", (email,))
+        cursor.execute("SELECT * FROM clientes WHERE email = ?", (email,))
         utilizador = cursor.fetchone()
         db.close()
         
