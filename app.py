@@ -90,6 +90,7 @@ def registo():
     return render_template('registo.html')
 
 @app.route('/login', methods=['GET', 'POST'])
+
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -97,28 +98,34 @@ def login():
         
         db = ligar_bd()
         cursor = db.cursor()
-        # AQUI FICOU O 'FROM' CORRETO:
+        # Procura o e-mail na base de dados em tempo real
         cursor.execute("SELECT * FROM clientes WHERE email = ?", (email,))
         utilizador = cursor.fetchone()
         db.close()
         
-        # Validação segura com a palavra-passe encriptada
-        if utilizador and check_password_hash(utilizador['password'], senha_inserida):
-            session['utilizador_id'] = utilizador['id_cliente']
-            session['utilizador_nome'] = utilizador['nome_entidade']
-            return redirect(url_for('index'))
-        else:
-            return "E-mail ou palavra-passe incorretos!"
+        if utilizador:
+            # 🚨 REGRA GERAL PARA A APRESENTAÇÃO:
+            # Se a senha for '123', aceita o login para QUALQUER cliente da base de dados!
+            if senha_inserida == '123':
+                session['utilizador_id'] = utilizador['id_cliente']
+                session['utilizador_nome'] = utilizador['nome_entidade']
+                return redirect(url_for('index'))
+                
+            # Validação normal por Hash (para novos registos feitos no site, como a Paula Vaz)
+            elif utilizador['password'] and check_password_hash(utilizador['password'], senha_inserida):
+                session['utilizador_id'] = utilizador['id_cliente']
+                session['utilizador_nome'] = utilizador['nome_entidade']
+                return redirect(url_for('index'))
+                
+        # Se o e-mail não existir ou a senha falhar as duas regras acima:
+        return "E-mail ou palavra-passe incorretos!"
             
     return render_template('login.html')
-
-
 @app.route('/logout')
 def logout():
     session.pop('utilizador_id', None)
     session.pop('utilizador_nome', None)
     return redirect(url_for('index_entrada'))
-
 # ==========================================
 # OPERAÇÕES DO CARRINHO DE COMPRAS
 # ==========================================
