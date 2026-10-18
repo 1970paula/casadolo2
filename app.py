@@ -97,12 +97,12 @@ def login():
         
         db = ligar_bd()
         cursor = db.cursor()
-        # Query corrigida com a instrução FROM para leitura da tabela
+        # AQUI FICOU O 'FROM' CORRETO:
         cursor.execute("SELECT * FROM clientes WHERE email = ?", (email,))
         utilizador = cursor.fetchone()
         db.close()
         
-        # Validação segura comparando o texto digitado com o hash gravado
+        # Validação segura com a palavra-passe encriptada
         if utilizador and check_password_hash(utilizador['password'], senha_inserida):
             session['utilizador_id'] = utilizador['id_cliente']
             session['utilizador_nome'] = utilizador['nome_entidade']
@@ -111,6 +111,7 @@ def login():
             return "E-mail ou palavra-passe incorretos!"
             
     return render_template('login.html')
+
 
 @app.route('/logout')
 def logout():
