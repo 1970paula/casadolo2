@@ -15,6 +15,8 @@
         <span style="font-family: sans-serif; color: #8B4513; font-size: 0.95em; background: #fff8f0; padding: 6px 12px; border-radius: 15px; border: 1px solid #7f5539;">
             Olá, <strong>{{ session['utilizador_nome'] }}</strong>!
         </span>
+        <!-- O NOVO BOTÃO DE ENCOMENDAS COM O ESTILO VINTAGE DO TEU SITE -->
+        <a href="{{ url_for('perfil') }}" class="vintage-btn" style="padding: 6px 15px; font-size: 0.85em;">📋 Encomendas</a>
         <a href="{{ url_for('logout') }}" class="vintage-btn" style="background: #dc3545; padding: 6px 15px; font-size: 0.85em;">🚪 Sair</a>
     {% else %}
         <!-- Se for um visitante anónimo -->
@@ -22,6 +24,7 @@
         <a href="{{ url_for('registo') }}" class="vintage-btn" style="background: #6c757d; padding: 6px 15px; font-size: 0.85em;">📝 Criar Conta</a>
     {% endif %}
 </div>
+
   
     <div class="container">
         <header>
