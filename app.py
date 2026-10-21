@@ -158,8 +158,61 @@ def remover_do_carrinho(produto_id):
 
 @app.route('/finalizar-compra', methods=['POST'])
 def finalizar_compra():
-    session.pop('carrinho', None) 
-    return "Compra finalizada com sucesso!"
+    # Verifica se o cliente tem o login ativo
+    if 'utilizador_id' not in session:
+        return "Erro: Precisa de fazer login para finalizar a encomenda!"
+    
+    itens_no_carrinho = session.get('carrinho', [])
+    if not itens_no_carrinho:
+        return "O seu carrinho está vazio!"
+    
+    id_cliente = session['utilizador_id']
+    valor_total = sum(item['preco'] for item in itens_no_carrinho)
+    
+    # Une os nomes de todos os doces numa única linha (Ex: "Pastéis de Nata uni., Folar")
+    nomes_produtos = ", ".join([item['nome'] for item in itens_no_carrinho])
+    
+    # Insere o registo da encomenda associado a este cliente no SQLite
+    try:
+        db = ligar_bd()
+        cursor = db.cursor()
+        cursor.execute(
+            """INSERT INTO encomendas (id_cliente, produtos_texto, valor_total, status) 
+               VALUES (?, ?, ?, 'Pendente')""",
+            (id_cliente, nomes_produtos, valor_total)
+        )
+        db.commit()
+        db.close()
+        
+        # Limpa o carrinho de compras após registar com sucesso
+        session.pop('carrinho', None) 
+        return f"Encomenda realizada com sucesso! Total: {valor_total}€"
+        
+    except Exception as e:
+        return f"Erro ao processar a encomenda: {e}"
+
+
+@app.route('/perfil')
+def perfil():
+    # 1. Garante que o utilizador está logado
+    if 'utilizador_id' not in session:
+        return redirect(url_for('login'))
+    
+    id_cliente = session['utilizador_id']
+    
+    # 2. Vai buscar todas as encomendas deste cliente à base de dados
+    db = ligar_bd()
+    cursor = db.cursor()
+    cursor.execute(
+        "SELECT * FROM encomendas WHERE id_cliente = ? ORDER BY data_pedido DESC", 
+        (id_cliente,)
+    )
+    as_minhas_encomendas = cursor.fetchall()
+    db.close()
+    
+    # 3. Envia os dados para a página HTML
+    return render_template('perfil.html', encomendas=as_minhas_encomendas)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

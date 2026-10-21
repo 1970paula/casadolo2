@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>As Minhas Encomendas - Casa do Ló</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #fcf8f2; }
+        .contentor { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); border: 1px solid #7f5539; }
+        h1, h2 { color: #5a3825; font-family: sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; }
+        th, td { border: 1px solid #7f5539; padding: 12px; text-align: left; }
+        th { background-color: #5a3825; color: white; }
+        tr:nth-child(even) { background-color: #fff8f0; }
+        .status-pendente { color: #d97706; font-weight: bold; background: #fef3c7; padding: 4px 8px; border-radius: 4px; }
+        .btn-voltar { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #5a3825; color: white; text-decoration: none; border-radius: 4px; font-weight: bold; }
+        .btn-voltar:hover { background-color: #7f5539; }
+    </style>
+</head>
+<body>
+
+<div class="contentor">
+    <h1>Olá, {{ session['utilizador_nome'] }}!</h1>
+    <p>Bem-vindo à sua área de cliente da Casa do Ló.</p>
+    
+    <h2>📋 O meu Histórico de Encomendas</h2>
+    
+    {% if encomendas %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nº Pedido</th>
+                    <th>Data</th>
+                    <th>Produtos</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enc in encomendas %}
+                <tr>
+                    <td><strong>#{{ enc['id_encomenda'] }}</strong></td>
+                    <td>{{ enc['data_pedido'] }}</td>
+                    <td>{{ enc['produtos_texto'] }}</td>
+                    <td>{{ enc['valor_total'] }}€</td>
+                    <td><span class="status-pendente">{{ enc['status'] }}</span></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p style="color: #666; font-style: italic;">Ainda não realizou nenhuma encomenda no nosso site.</p>
+    {% endif %}
+    
+    <a href="{{ url_for('index') }}" class="btn-voltar">Voltar à Loja</a>
+</div>
+
+</body>
+</html>
