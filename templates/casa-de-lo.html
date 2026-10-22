@@ -112,184 +112,198 @@
                         <div class="gallery-caption">Compotas/Várias</div>    
                     </div>
             </section>
-            <section id="doces">
-                <h2 class="section-title">Doces Tradicionais</h2>               
+           <section id="doces" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+                <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">Doces Tradicionais</h2>               
                 
                 <!-- 1. Pastéis de Nata -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div>
-                        <div class="item-name"><u>Pastéis de Nata uni.</u></div>
-                        <div class="item-desc">Folhado com creme de ovos, segundo receita original do Mosteiro dos Jerónimos</div>
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Pastéis de Nata uni.</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Folhado com creme de ovos, segundo receita original do Mosteiro dos Jerónimos</div>
                     </div>
-                    <div style="text-align: right;">
-                        <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,50</div>
-                       <a href="{{ url_for('adicionar_ao_carrinho', produto_id=1)}}" class="vintage-btn">Comprar</a>
-                        <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
+                        <div style="font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,50</div>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=1)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=1) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=1) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
                     </div>
-                </div>               
                 
-                <!-- 2. Pão de Ló de Margaride -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                 <div>
-                      <div class="item-name"><u>Pão de Ló de Margaride</u></div>
-                      <div class="item-desc">Tradicional, fofinho e húmido, servido inteiro na forma tradicional.</div>
-                 </div>
-                 <div style="text-align: right;">
-                  <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€20,00</div>
-                  <a href="{{ url_for('adicionar_ao_carrinho', produto_id=2)}}" class="vintage-btn">Comprar</a>
-                   <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
-                </div>          
-            </div>               
+               <!-- 2. Pão de Ló de Margaride -->
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                     <div style="flex: 1; padding-right: 20px; text-align: left;">
+                          <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Pão de Ló de Margaride</u></div>
+                          <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Tradicional, fofinho e húmido, servido inteiro na forma tradicional.</div>
+                     </div>
+                     <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
+                         <div style="font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€20,00</div>
+                         <a href="{{ url_for('adicionar_ao_carrinho', produto_id=2)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                         <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                         </div>
+                     </div>          
+                </div>
                 <!-- 3. Toucinho do Céu Conventual -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                 <div>
-                      <div class="item-name"><u>Toucinho do Céu Conventual</u></div>
-                      <div class="item-desc">Doce conventual inteiro de amêndoa e ovos, feito segundo a tradição secular.</div>
-                 </div>
-                 <div style="text-align: right;">
-                 <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€26,00</div>
-                 <a href="{{ url_for('adicionar_ao_carrinho', produto_id=3)}}" class="vintage-btn">Comprar</a>
-                 <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>               
-                </div>
-            </div>    
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                     <div style="flex: 1; padding-right: 20px; text-align: left;">
+                          <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Toucinho do Céu Conventual</u></div>
+                          <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Doce conventual inteiro de amêndoa e ovos, feito segundo a tradição secular.</div>
+                     </div>
+                     <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
+                         <div style="font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€26,00</div>
+                         <a href="{{ url_for('adicionar_ao_carrinho', produto_id=3)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                         <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=3) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                             <a href="{{ url_for('adicionar_mais_um', produto_id=3) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                         </div>
+                     </div>
+                </div>    
                 <!-- 4. Queijadas de Sintra -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div>
-                        <div class="item-name"><u>Queijadas de Sintra uni.</u></div>
-                        <div class="item-desc">Pequenas delícias de requeijão e canela</div>
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Queijadas de Sintra uni.</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Pequenas delícias de requeijão e canela</div>
                     </div>
-                    <div style="text-align: right;">
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                         <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,20</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=4)}}" class="vintage-btn">Comprar</a>
-                         <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=4)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=4) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=4) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- 5. Ovos Moles -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div>
-                        <div class="item-name"><u>Ovos Moles uni.</u></div>
-                        <div class="item-desc">Fina massa de hóstia recheada com creme de ovos, moldada em formas marinhas</div>
+               <!-- 5. Ovos Moles -->
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;">Ovos Moles uni.</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Fina massa de hóstia recheada com creme de ovos, moldada em formas marinhas</div>
                     </div>
-                    <div style="text-align: right;">
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                         <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,50</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=5)}}" class="vintage-btn">Comprar</a>
-                         <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=5)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=5) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=5) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
                     </div>
                 </div>
 
-               <!-- 6. Bolo de Mel da Madeira -->
-               <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                <div>
-                 <div class="item-name"><u>Bolo de Mel da Madeira</u></div>
-                 <div class="item-desc">Especialidade inteira com mel de cana, especiarias e nozes, envelhecido como manda a tradição.</div>
-                </div>
-                <div style="text-align: right;">
-                   <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€16,00</div>
-                   <a href="{{ url_for('adicionar_ao_carrinho', produto_id=6)}}" class="vintage-btn">Comprar</a>
-                    <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
-                  </div>
+                             <!-- 6. Bolo de Mel da Madeira -->
+               <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Bolo de Mel da Madeira</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Especialidade inteira com mel de cana, especiarias e nozes, envelhecido como manda a tradição.</div>
+                    </div>
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
+                        <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€16,00</div>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=6)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=6) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=6) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
+                    </div>
                </div>
 
-                <!-- 7. Brisas do Lis -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div>
-                        <div class="item-name"><u>Brisas do Lis uni.</u></div>
-                        <div class="item-desc">Biscoitos leves de Leiria feitos com farinha, açúcar, manteiga e ovos</div>
+
+                                <!-- 7. Brisas do Lis -->
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Brisas do Lis uni.</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Biscoitos leves de Leiria feitos com farinha, açúcar, manteiga e ovos</div>
                     </div>
-                    <div style="text-align: right;">
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                         <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,50</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=7)}}" class="vintage-btn">Comprar</a>
-                         <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=7)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=7) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=7) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 8. Arrufadas -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div>
-                        <div class="item-name"><u>Arrufadas uni.</u></div>
-                        <div class="item-desc">Bolinho conventual em forma de rosa, feito com massa doce e ovos, polvilhado com açúcar</div>
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Arrufadas uni.</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Bolinho conventual em forma de rosa, feito com massa doce e ovos, polvilhado com açúcar</div>
                     </div>
-                    <div style="text-align: right;">
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                         <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,20</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=8)}}" class="vintage-btn">Comprar</a>
-                            <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                                <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                                <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=8)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=8) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=8) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 9. Folar -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div>
-                        <div class="item-name"><u>Folar</u></div>
-                        <div class="item-desc">Pão doce transmontano com erva-doce e canela, recheado com ovos cozidos inteiros - símbolo da Páscoa em Portugal.</div>
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Folar</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Pão doce transmontano com erva-doce e canela, recheado com ovos cozidos inteiros - símbolo da Páscoa em Portugal.</div>
                     </div>
-                    <div style="text-align: right;">
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                         <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€4,80</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=9)}}" class="vintage-btn">Comprar</a>
-                            <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                                <a href="{{ url_for('remover_um_do_carrinho', produto_id=9) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                                <a href="{{ url_for('adicionar_mais_um', produto_id=9) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=9)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=9) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=9) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 10. Marmelada -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div>
-                        <div class="item-name"><u>Marmelada de Marmelo/Kg</u></div>
-                        <div class="item-desc">Marmelada caseira tradicional, cortada à fatia e cozida lentamente até atingir a textura perfeita.</div>
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Marmelada de Marmelo/Kg</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Marmelada caseira tradicional, cortada à fatia e cozida lentamente até atingir a textura perfeita.</div>
                     </div>
-                    <div style="text-align: right;">
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                         <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€5,80</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=10)}}" class="vintage-btn">Comprar</a>
-                         <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=10)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=10) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=10) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 11. Geleia -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div>
-                        <div class="item-name"><u>Geleia de Marmelo/Kg</u></div>
-                        <div class="item-desc">Feita dos marmelos mais frescos, esta geleia é cristalina, doce e perfeita para acompanhar torradas ou queijos.</div>
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Geleia de Marmelo/Kg</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Feita dos marmelos mais frescos, esta geleia é cristalina, doce e perfeita para acompanhar torradas ou queijos.</div>
                     </div>
-                    <div style="text-align: right;">
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                         <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€6,50</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=11)}}" class="vintage-btn">Comprar</a>
-                         <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
+                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=11)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=11) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=11) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
                     </div>
                 </div>
+
                 <!-- 12. Compotas -->
-                 <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                    <div>
-                        <div class="item-name"><u>Compotas/Várias</u></div>
-                        <div class="item-desc">Compotas caseiras de fruta da época, cozidas lentamente para preservar o sabor e os nutrientes.</div>
+                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                    <div style="flex: 1; padding-right: 20px; text-align: left;">
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Compotas/Várias</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Compotas caseiras de fruta da época, cozidas lentamente para preservar o sabor e os nutrientes.</div>
                     </div>
-                    <div style="text-align: right;">
+                    <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                         <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€4,50</div>
-                        <a href="{{ url_for('adicionar_ao_carrinho', produto_id=12)}}" class="vintage-btn">Comprar</a>
-                         <div style="display: flex; gap: 6px; justify-content: flex-end;">
-                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">-</a>
-                             <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 8px; font-size: 0.75em; font-weight: bold; min-width: 15px; text-align: center;">+</a>
+                         <a href="{{ url_for('adicionar_ao_carrinho', produto_id=12)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
+                        <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=11) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=11) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+
                     </div>
+                  </div>
                 </div>
             </section>
 <div>
