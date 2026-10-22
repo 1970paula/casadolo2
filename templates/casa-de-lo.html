@@ -331,5 +331,27 @@
             </div>
         </footer>
     </div>
+ 
+    <script>
+      // Guarda a posição do ecrã antes de a página recarregar
+      window.addEventListener("beforeunload", function () {
+        localStorage.setItem("casaDoLoScroll", window.scrollY);
+      });
+
+      // Repõe a posição do ecrã assim que a página termina de carregar
+      window.addEventListener("DOMContentLoaded", function () {
+        const savedScroll = localStorage.getItem("casaDoLoScroll");
+        if (savedScroll !== null) {
+          setTimeout(function() {
+            window.scrollTo({
+              top: parseInt(savedScroll),
+              behavior: 'instant'
+            });
+            localStorage.removeItem("casaDoLoScroll");
+          }, 50);
+        }
+      });
+    </script>
+    
 </body>
 </html>
