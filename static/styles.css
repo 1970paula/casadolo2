@@ -303,6 +303,24 @@ section {
   margin-top: 4px;
 }
 
+/* Força a secção de doces a organizar-se na vertical, um por baixo do outro */
+#doces {
+    display: flex !important;
+    flex-direction: column !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+/* Corrige cada doce para se comportar como uma linha horizontal e limpa comportamentos antigos */
+#doces .menu-item {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    float: none !important;
+    clear: both !important;
+    margin-bottom: 25px !important;
+}
 
 
 
