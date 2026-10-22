@@ -112,14 +112,14 @@
                         <div class="gallery-caption">Compotas/Várias</div>    
                     </div>
             </section>
-           <section id="doces" style="max-width: 800px; margin: 0 auto; padding: 20px;">
-                <h2 class="section-title" style="text-align: center; margin-bottom: 30px;">Doces Tradicionais</h2>               
+                      <section id="doces" style="max-width: 800px; margin: 0 auto; padding: 20px; display: flex !important; flex-direction: column !important; clear: both !important; float: none !important;">
+                <h2 class="section-title" style="text-align: center; margin-bottom: 30px; font-family: sans-serif; color: #5a3825;">Doces Tradicionais</h2>               
                 
                 <!-- 1. Pastéis de Nata -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                <div class="linha-doce" style="display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539; width: 100% !important; float: none !important; clear: both !important;">
                     <div style="flex: 1; padding-right: 20px; text-align: left;">
-                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Pastéis de Nata uni.</u></div>
-                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Folhado com creme de ovos, segundo receita original do Mosteiro dos Jerónimos</div>
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825; font-family: sans-serif;"><u>Pastéis de Nata uni.</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px; font-family: sans-serif;">Folhado com creme de ovos, segundo receita original do Mosteiro dos Jerónimos</div>
                     </div>
                     <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                         <div style="font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,50</div>
@@ -129,12 +129,13 @@
                             <a href="{{ url_for('adicionar_mais_um', produto_id=1) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
                         </div>
                     </div>
+                </div>               
                 
-               <!-- 2. Pão de Ló de Margaride -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                <!-- 2. Pão de Ló de Margaride -->
+                <div class="linha-doce" style="display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539; width: 100% !important; float: none !important; clear: both !important;">
                      <div style="flex: 1; padding-right: 20px; text-align: left;">
-                          <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Pão de Ló de Margaride</u></div>
-                          <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Tradicional, fofinho e húmido, servido inteiro na forma tradicional.</div>
+                          <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825; font-family: sans-serif;"><u>Pão de Ló de Margaride</u></div>
+                          <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px; font-family: sans-serif;">Tradicional, fofinho e húmido, servido inteiro na forma tradicional.</div>
                      </div>
                      <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                          <div style="font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€20,00</div>
@@ -144,12 +145,13 @@
                              <a href="{{ url_for('adicionar_mais_um', produto_id=2) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
                          </div>
                      </div>          
-                </div>
+                </div>               
+
                 <!-- 3. Toucinho do Céu Conventual -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                <div class="linha-doce" style="display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539; width: 100% !important; float: none !important; clear: both !important;">
                      <div style="flex: 1; padding-right: 20px; text-align: left;">
-                          <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Toucinho do Céu Conventual</u></div>
-                          <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Doce conventual inteiro de amêndoa e ovos, feito segundo a tradição secular.</div>
+                          <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825; font-family: sans-serif;"><u>Toucinho do Céu Conventual</u></div>
+                          <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px; font-family: sans-serif;">Doce conventual inteiro de amêndoa e ovos, feito segundo a tradição secular.</div>
                      </div>
                      <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
                          <div style="font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€26,00</div>
@@ -160,14 +162,15 @@
                          </div>
                      </div>
                 </div>    
+
                 <!-- 4. Queijadas de Sintra -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                <div class="linha-doce" style="display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539; width: 100% !important; float: none !important; clear: both !important;">
                     <div style="flex: 1; padding-right: 20px; text-align: left;">
-                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Queijadas de Sintra uni.</u></div>
-                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Pequenas delícias de requeijão e canela</div>
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825; font-family: sans-serif;"><u>Queijadas de Sintra uni.</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px; font-family: sans-serif;">Pequenas delícias de requeijão e canela</div>
                     </div>
                     <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
-                        <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,20</div>
+                        <div style="font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,20</div>
                         <a href="{{ url_for('adicionar_ao_carrinho', produto_id=4)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
                         <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=4) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
@@ -176,14 +179,14 @@
                     </div>
                 </div>
 
-               <!-- 5. Ovos Moles -->
-                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
+                <!-- 5. Ovos Moles -->
+                <div class="linha-doce" style="display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539; width: 100% !important; float: none !important; clear: both !important;">
                     <div style="flex: 1; padding-right: 20px; text-align: left;">
-                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;">Ovos Moles uni.</u></div>
-                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px;">Fina massa de hóstia recheada com creme de ovos, moldada em formas marinhas</div>
+                        <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825; font-family: sans-serif;"><u>Ovos Moles uni.</u></div>
+                        <div class="item-desc" style="color: #666; font-size: 0.9em; margin-top: 5px; font-family: sans-serif;">Fina massa de hóstia recheada com creme de ovos, moldada em formas marinhas</div>
                     </div>
                     <div style="width: 150px; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 5px;">
-                        <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,50</div>
+                        <div style="font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€1,50</div>
                         <a href="{{ url_for('adicionar_ao_carrinho', produto_id=5)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
                         <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
                             <a href="{{ url_for('remover_um_do_carrinho', produto_id=5) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
@@ -192,7 +195,8 @@
                     </div>
                 </div>
 
-                             <!-- 6. Bolo de Mel da Madeira -->
+
+                 <!-- 6. Bolo de Mel da Madeira -->
                <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
                     <div style="flex: 1; padding-right: 20px; text-align: left;">
                         <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Bolo de Mel da Madeira</u></div>
@@ -209,7 +213,7 @@
                </div>
 
 
-                                <!-- 7. Brisas do Lis -->
+                 <!-- 7. Brisas do Lis -->
                 <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
                     <div style="flex: 1; padding-right: 20px; text-align: left;">
                         <div class="item-name" style="font-weight: bold; font-size: 1.1em; color: #5a3825;"><u>Brisas do Lis uni.</u></div>
@@ -256,6 +260,7 @@
                         </div>
                     </div>
                 </div>
+                
 
                 <!-- 10. Marmelada -->
                 <div class="menu-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px dashed #7f5539;">
@@ -299,14 +304,13 @@
                         <div style="margin-bottom: 5px; font-family: sans-serif; font-weight: bold; color: #7f5539; font-size: 1.1em;">€4,50</div>
                          <a href="{{ url_for('adicionar_ao_carrinho', produto_id=12)}}" class="vintage-btn" style="display: block; width: 90px; text-align: center; font-size: 0.85em; padding: 4px 0;">Comprar</a>
                         <div style="display: flex; gap: 6px; width: 90px; justify-content: space-between;">
-                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=11) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
-                            <a href="{{ url_for('adicionar_mais_um', produto_id=11) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
-
+                            <a href="{{ url_for('remover_um_do_carrinho', produto_id=12) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">-</a>
+                            <a href="{{ url_for('adicionar_mais_um', produto_id=12) }}" class="vintage-btn" style="padding: 2px 0; font-size: 0.75em; font-weight: bold; flex: 1; text-align: center;">+</a>
+                        </div>
                     </div>
-                  </div>
                 </div>
             </section>
-<div>
+
 <section id="contactos">
     <h2 class="section-title">Contactos</h2>
     <p>Estamos localizados no coração do Porto, prontos para lhe oferecer os melhores doces tradicionais.</p>
@@ -318,7 +322,7 @@
         <a href="tel:+3512255567812" class="vintage-btn">Ligue-nos</a>
     </div>
 </section>
-        </div>
+
         <footer>
             <p>© 2025 Casa-de-Ló - Todos os direitos reservados</p>
             <p>"Guardamos os sabores que a memória não esquece"</p>
