@@ -1,4 +1,5 @@
 import sqlite3
+import os
 from flask import Flask, render_template, url_for, redirect, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -90,7 +91,6 @@ def registo():
     return render_template('registo.html')
 
 @app.route('/login', methods=['GET', 'POST'])
-
 def login():
     if request.method == 'POST':
         email = request.form.get('email')
@@ -111,7 +111,7 @@ def login():
                 session['utilizador_nome'] = utilizador['nome_entidade']
                 return redirect(url_for('index'))
                 
-            # Validação normal por Hash (para novos registos feitos no site, como a Paula Vaz)
+            # Validação normal por Hash (para novos registos feitos no site)
             elif utilizador['password'] and check_password_hash(utilizador['password'], senha_inserida):
                 session['utilizador_id'] = utilizador['id_cliente']
                 session['utilizador_nome'] = utilizador['nome_entidade']
@@ -121,13 +121,38 @@ def login():
         return "E-mail ou palavra-passe incorretos!"
             
     return render_template('login.html')
+
 @app.route('/logout')
 def logout():
     session.pop('utilizador_id', None)
     session.pop('utilizador_nome', None)
     return redirect(url_for('index_entrada'))
+
 # ==========================================
-# OPERAÇÕES DO CARRINHO DE COMPRAS
+# ÁREA DE CLIENTE (HISTÓRICO DE ENCOMENDAS)
+# ==========================================
+@app.route('/perfil')
+def perfil():
+    # Garante que o utilizador iniciou sessão
+    if 'utilizador_id' not in session:
+        return redirect(url_for('login'))
+    
+    id_cliente = session['utilizador_id']
+    
+    # Procura as encomendas feitas por este cliente específico
+    db = ligar_bd()
+    cursor = db.cursor()
+    cursor.execute(
+        "SELECT * FROM encomendas WHERE id_cliente = ? ORDER BY data_pedido DESC", 
+        (id_cliente,)
+    )
+    as_minhas_encomendas = cursor.fetchall()
+    db.close()
+    
+    return render_template('perfil.html', encomendas=as_minhas_encomendas)
+
+# ==========================================
+# OPERAÇÕES DO CARRINHO DE COMPRAS & ENCOMENDAS
 # ==========================================
 @app.route('/carrinho')
 def carrinho():
@@ -137,6 +162,28 @@ def carrinho():
 
 @app.route('/adicionar_ao_carrinho/<int:produto_id>')
 def adicionar_ao_carrinho(produto_id):
+    if 'carrinho' not in session:
+        session['carrinho'] = []
+    if produto_id in PRODUTOS:
+        novo_item = PRODUTOS[produto_id].copy()
+        novo_item['id'] = produto_id
+        session['carrinho'].append(novo_item)
+        session.modified = True 
+    return redirect(url_for('index'))
+
+# MUDANÇA: Novas rotas para os botões de ajuste de quantidade (+ e -)
+@app.route('/remover_um_do_carrinho/<int:produto_id>')
+def remover_um_do_carrinho(produto_id):
+    if 'carrinho' in session:
+        for item in session['carrinho']:
+            if item['id'] == produto_id:
+                session['carrinho'].remove(item)
+                session.modified = True
+                break
+    return redirect(url_for('index'))
+
+@app.route('/adicionar_mais_um/<int:produto_id>')
+def adicionar_mais_um(produto_id):
     if 'carrinho' not in session:
         session['carrinho'] = []
     if produto_id in PRODUTOS:
@@ -156,6 +203,7 @@ def remover_do_carrinho(produto_id):
                 break
     return redirect(url_for('carrinho'))
 
+# MUDANÇA: Rota de finalização alterada para abrir o ficheiro sucesso.html das cores do site
 @app.route('/finalizar-compra', methods=['POST'])
 def finalizar_compra():
     # Verifica se o cliente tem o login ativo
@@ -186,33 +234,13 @@ def finalizar_compra():
         
         # Limpa o carrinho de compras após registar com sucesso
         session.pop('carrinho', None) 
-        return f"Encomenda realizada com sucesso! Total: {valor_total}€"
+        
+        # REDIRECIONA PARA A NOVA PÁGINA VINTAGE DE SUCESSO
+        return render_template('sucesso.html')
         
     except Exception as e:
         return f"Erro ao processar a encomenda: {e}"
 
-
-@app.route('/perfil')
-def perfil():
-    # 1. Garante que o utilizador está logado
-    if 'utilizador_id' not in session:
-        return redirect(url_for('login'))
-    
-    id_cliente = session['utilizador_id']
-    
-    # 2. Vai buscar todas as encomendas deste cliente à base de dados
-    db = ligar_bd()
-    cursor = db.cursor()
-    cursor.execute(
-        "SELECT * FROM encomendas WHERE id_cliente = ? ORDER BY data_pedido DESC", 
-        (id_cliente,)
-    )
-    as_minhas_encomendas = cursor.fetchall()
-    db.close()
-    
-    # 3. Envia os dados para a página HTML
-    return render_template('perfil.html', encomendas=as_minhas_encomendas)
-
-
 if __name__ == '__main__':
     app.run(debug=True)
+
