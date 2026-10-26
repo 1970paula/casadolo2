@@ -18,14 +18,14 @@ def ligar_bd():
 
 # Dicionário centralizado de controlo de preços e produtos para o carrinho
 PRODUTOS = {
-    1: {"nome": "Pastéis de Nata uni.", "preco": 1.50},
+    1: {"nome": "Pastéis de Nata (Caixa de 6)", "preco": 9.00},
     2: {"nome": "Pão de Ló de Margaride", "preco": 20.00},
     3: {"nome": "Toucinho do Céu Conventual", "preco": 26.00},
-    4: {"nome": "Queijadas de Sintra uni.", "preco": 1.20},
-    5: {"nome": "Ovos Moles uni.", "preco": 2.00},
+    4: {"nome": "Queijadas de Sintra (Caixa de 6)", "preco": 7.20},
+    5: {"nome": "Ovos Moles (Caixa de 6)", "preco": 12.00},
     6: {"nome": "Bolo de Mel da Madeira", "preco": 16.00},
-    7: {"nome": "Brisas do Lis uni.", "preco": 1.50},
-    8: {"nome": "Arrufadas uni.", "preco": 1.20},
+    7: {"nome": "Brisas do Lis (Caixa de 6)", "preco": 9.00},
+    8: {"nome": "Arrufadas (Caixa de 6)", "preco": 7.20},
     9: {"nome": "Folar", "preco": 6.00},
     10: {"nome": "Marmelada de Marmelo/Kg", "preco": 5.80},
     11: {"nome": "Geleia de Marmelo/Kg", "preco": 6.50},
