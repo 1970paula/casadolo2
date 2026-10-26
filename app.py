@@ -66,7 +66,7 @@ def registo():
         tipo_cliente = request.form.get('tipo_cliente')
         telemovel = request.form.get('telemovel')
         email = request.form.get('email')
-        senha = request.form.get('senha')
+        senha = request.form.get('password')
 
         # Gera o hash criptográfico seguro a partir da palavra-passe digitada
         senha_encriptada = generate_password_hash(senha)
