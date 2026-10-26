@@ -66,7 +66,7 @@ def registo():
         tipo_cliente = request.form.get('tipo_cliente')
         telemovel = request.form.get('telemovel')
         email = request.form.get('email')
-        senha = request.form.get('password')
+        senha = request.form.get('senha')  # Mudado para 'senha' porque é o name do HTML
 
         # Gera o hash criptográfico seguro a partir da palavra-passe digitada
         senha_encriptada = generate_password_hash(senha)
@@ -82,10 +82,10 @@ def registo():
             # Cria o próximo ID no formato correto (ex: CLI0015)
             id_cliente = f"CLI{total_clientes + 1:04d}"
 
-            # Mapeamento correspondente à estrutura da sua tabela 'clientes'
+            # Mapeamento com 'password' adaptado à tua tabela SQLite
             cursor.execute(
                 """INSERT INTO clientes 
-                (id_cliente, nome_entidade, tipo_cliente, telemovel, email, valor_total, valor_em_divida, senha) 
+                (id_cliente, nome_entidade, tipo_cliente, telemovel, email, valor_total, valor_em_divida, password) 
                 VALUES (?, ?, ?, ?, ?, 0.0, 0.0, ?)""",
                 (id_cliente, nome_entidade, tipo_cliente, telemovel, email, senha_encriptada)
             )
