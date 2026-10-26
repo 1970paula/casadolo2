@@ -272,3 +272,28 @@ def finalizar_compra():
 if __name__ == '__main__':
     app.run(debug=True)
 
+@app.route('/lista-secreta-clientes')
+def lista_secreta_clientes():
+    try:
+        db = ligar_bd()
+        cursor = db.cursor()
+        # Procura o ID, Nome e E-mail de todos os clientes, mostrando os mais recentes primeiro
+        cursor.execute("SELECT id_cliente, nome_entidade, email FROM clientes ORDER BY id_cliente DESC")
+        clientes = cursor.fetchall()
+        db.close()
+        
+        # Cria uma página web simples em texto puro para tu leres
+        resultado = """
+        <div style="font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+            <h2 style="color: #7f5539;">Casa do Ló - Clientes na Nuvem</h2>
+            <p>Esta é a tua lista de clientes guardada em tempo real no servidor do Render:</p>
+            <ul style="line-height: 2;">
+        """
+        for c in clientes:
+            resultado += f"<li><b>{c[0]}</b> - {c[1]} (<span style='color:#555;'>{c[2]}</span>)</li>"
+        
+        resultado += "</ul></div>"
+        return resultado
+    except Exception as e:
+        return f"Erro ao ler a base de dados na nuvem: {str(e)}"
+
