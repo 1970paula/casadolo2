@@ -75,13 +75,13 @@ def registo():
             db = ligar_bd()
             cursor = db.cursor()
 
-                    # Procura o maior ID de cliente existente na tabela
+                        # Procura o maior ID de cliente existente na tabela
             cursor.execute("SELECT id_cliente FROM clientes ORDER BY id_cliente DESC LIMIT 1")
             ultimo_cliente = cursor.fetchone()
             
             if ultimo_cliente and ultimo_cliente[0]:
-                # Remove as letras 'CLI' e fica apenas com a parte numérica (ex: '0014')
-                texto_id = ultimo_cliente[0]
+                # Extrai o texto da primeira coluna da base de dados com [0]
+                texto_id = str(ultimo_cliente[0])
                 numero_limpo = texto_id.replace("CLI", "")
                 
                 # Converte para número inteiro e soma 1
@@ -89,6 +89,10 @@ def registo():
             else:
                 # Se a tabela estiver vazia, começa no 1
                 proximo_numero = 1
+            
+            # Cria o próximo ID garantindo o formato correto (ex: CLI0015)
+            id_cliente = f"CLI{proximo_numero:04d}"
+
             
             # Cria o próximo ID garantindo o formato correto (ex: CLI0015)
             id_cliente = f"CLI{proximo_numero:04d}"
