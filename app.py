@@ -62,28 +62,36 @@ def index():
 @app.route('/registo', methods=['GET', 'POST'])
 def registo():
     if request.method == 'POST':
-        id_cliente = request.form.get('id_cliente')
         nome_entidade = request.form.get('nome_entidade')
         tipo_cliente = request.form.get('tipo_cliente')
         telemovel = request.form.get('telemovel')
         email = request.form.get('email')
         senha = request.form.get('senha')
-        
+
         # Gera o hash criptográfico seguro a partir da palavra-passe digitada
         senha_encriptada = generate_password_hash(senha)
-        
+
         try:
             db = ligar_bd()
             cursor = db.cursor()
+
+            # Conta quantos clientes existem para gerar o próximo ID automaticamente
+            cursor.execute("SELECT COUNT(*) FROM clientes")
+            total_clientes = cursor.fetchone()[0]
+            
+            # Cria o próximo ID no formato correto (ex: CLI0015)
+            id_cliente = f"CLI{total_clientes + 1:04d}"
+
             # Mapeamento correspondente à estrutura da sua tabela 'clientes'
             cursor.execute(
                 """INSERT INTO clientes 
-                (id_cliente, nome_entidade, tipo_cliente, telemovel, email, valor_total, valor_em_divida, password) 
+                (id_cliente, nome_entidade, tipo_cliente, telemovel, email, valor_total, valor_em_divida, senha) 
                 VALUES (?, ?, ?, ?, ?, 0.0, 0.0, ?)""",
                 (id_cliente, nome_entidade, tipo_cliente, telemovel, email, senha_encriptada)
             )
             db.commit()
             db.close()
+
             return redirect(url_for('login'))
         except sqlite3.IntegrityError:
             return "Erro: O ID de Cliente ou E-mail já existe na base de dados!"
