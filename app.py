@@ -297,3 +297,44 @@ def lista_secreta_clientes():
     except Exception as e:
         return f"Erro ao ler a base de dados na nuvem: {str(e)}"
 
+@app.route('/lista-secreta-encomendas')
+def lista_secreta_encomendas():
+    try:
+        db = ligar_bd()
+        cursor = db.cursor()
+        # Procura os dados das encomendas, mostrando as mais recentes primeiro
+        cursor.execute("SELECT id_encomenda, id_cliente, valor_total, status FROM encomendas ORDER BY id_encomenda DESC")
+        encomendas = cursor.fetchall()
+        db.close()
+        
+        # Cria uma página web simples para leitura
+        resultado = """
+        <div style="font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+            <h2 style="color: #7f5539;">Casa do Ló - Encomendas na Nuvem</h2>
+            <p>Lista de encomendas recebidas em tempo real no servidor do Render:</p>
+            <table style="width: 100%; border-collapse: collapse; line-height: 2;">
+                <thead>
+                    <tr style="background-color: #f8f9fa; border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">ID Enc</th>
+                        <th style="text-align: left; padding: 8px;">Cliente</th>
+                        <th style="text-align: left; padding: 8px;">Total</th>
+                        <th style="text-align: left; padding: 8px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+        """
+        for enc in encomendas:
+            status_color = "#28a745" if enc[3] == "Pendente" else "#6c757d"
+            resultado += f"""
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;"><b>ENC-{enc[0]}</b></td>
+                    <td style="padding: 8px;">{enc[1]}</td>
+                    <td style="padding: 8px;">{enc[2]}€</td>
+                    <td style="padding: 8px; color: {status_color}; font-weight: bold;">{enc[3]}</td>
+                </tr>
+            """
+        
+        resultado += "</tbody></table></div>"
+        return resultado
+    except Exception as e:
+        return f"Erro ao ler as encomendas na nuvem: {str(e)}"
