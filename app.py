@@ -75,12 +75,20 @@ def registo():
             db = ligar_bd()
             cursor = db.cursor()
 
-            # Conta quantos clientes existem para gerar o próximo ID automaticamente
-            cursor.execute("SELECT COUNT(*) FROM clientes")
-            total_clientes = cursor.fetchone()[0]
+         # Procura o maior ID de cliente existente na tabela
+            cursor.execute("SELECT id_cliente FROM clientes ORDER BY id_cliente DESC LIMIT 1")
+            ultimo_cliente = cursor.fetchone()
             
-            # Cria o próximo ID no formato correto (ex: CLI0015)
-            id_cliente = f"CLI{total_clientes + 1:04d}"
+            if ultimo_cliente and ultimo_cliente[0]:
+                # Extrai apenas os números do ID (ex: de 'CLI0014' extrai 14)
+                ultimo_numero = int(''.join(filter(str.isdigit, ultimo_cliente[0])))
+                proximo_numero = ultimo_numero + 1
+            else:
+          # Se a tabela estiver vazia, começa no 1
+                proximo_numero = 1
+            
+          # Cria o próximo ID garantindo o formato correto (ex: CLI0015)
+            id_cliente = f"CLI{proximo_numero:04d}"
 
             # Mapeamento com 'password' adaptado à tua tabela SQLite
             cursor.execute(
