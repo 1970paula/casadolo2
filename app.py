@@ -75,26 +75,32 @@ def registo():
             db = ligar_bd()
             cursor = db.cursor()
 
-                       # Procura o maior ID de cliente existente na tabela
-            cursor.execute("SELECT id_cliente FROM clientes ORDER BY id_cliente DESC LIMIT 1")
-            ultimo_cliente = cursor.fetchone()
+         # Procura todos os IDs existentes na tabela de clientes
+            cursor.execute("SELECT id_cliente FROM clientes")
+            todos_clientes = cursor.fetchall()
             
-            proximo_numero = 15  # Valor de segurança caso a leitura falhe
-            
-            if ultimo_cliente and ultimo_cliente[0]:
-                try:
-                    # Tenta extrair o número de forma limpa (ex: 'CLI0014' -> '0014' -> 14)
-                    texto_id = str(ultimo_cliente[0])
-                    numero_limpo = texto_id.replace("CLI", "").strip()
-                    proximo_numero = int(numero_limpo) + 1
-                except Exception:
-                    # Se falhar qualquer conversão, assume o próximo número com base no tamanho da tabela
-                    cursor.execute("SELECT COUNT(*) FROM clientes")
-                    total = cursor.fetchone()[0]
-                    proximo_numero = total + 2  # Salta o ID repetido para garantir o sucesso
+            maior_numero = 0
+            for cliente in todos_clientes:
+                if cliente[0]:
+                    try:
+                        # Extrai apenas os dígitos numéricos (ex: de 'CLI0014' extrai 14, de 'CLI012' extrai 12)
+                        num = int(''.join(filter(str.isdigit, str(cliente[0]))))
+                        if num > maior_numero:
+                            maior_numero = num
+                    except Exception:
+                        continue
 
-            # Cria o próximo ID garantindo o formato correto (ex: CLI0015)
-            id_cliente = f"CLI{proximo_numero:04d}"
+            # Se não encontrar nenhum cliente ou falhar, assume um número seguro com base no total
+            if maior_numero == 0:
+                cursor.execute("SELECT COUNT(*) FROM clientes")
+                maior_numero = cursor.fetchone()[0] + 2
+
+            # O próximo número será obrigatoriamente o maior encontrado + 1
+            proximo_numero = maior_numero + 1
+            
+            # Cria o próximo ID garantindo o padrão correto de dois zeros (ex: CLI014, CLI015...)
+            id_cliente = f"CLI{proximo_numero:03d}"
+
 
             # Mapeamento com 'password' adaptado à tua tabela SQLite
             cursor.execute(
