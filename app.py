@@ -22,7 +22,7 @@ PRODUTOS = {
     2: {"nome": "Pão de Ló de Margaride", "preco": 20.00},
     3: {"nome": "Toucinho do Céu Conventual", "preco": 26.00},
     4: {"nome": "Queijadas de Sintra (Caixa de 6)", "preco": 7.20},
-    5: {"nome": "Ovos Moles (Caixa de 6)", "preco": 12.00},
+    5: {"nome": "Ovos Moles (Caixa de 12)", "preco": 12.00},
     6: {"nome": "Bolo de Mel da Madeira", "preco": 16.00},
     7: {"nome": "Brisas do Lis (Caixa de 6)", "preco": 9.00},
     8: {"nome": "Arrufadas (Caixa de 6)", "preco": 7.20},
