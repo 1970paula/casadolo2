@@ -322,6 +322,63 @@ section {
     margin-bottom: 25px !important;
 }
 
+.carrossel-historia {
+  max-width: 750px;
+  margin: 25px auto 35px auto;
+  padding: 15px 20px;
+  text-align: center;
+  position: relative;
+  min-height: 90px; /* Evita que a Galeria de Doces salte para cima e para baixo */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.historia-slide {
+  display: none;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out; /* Transição bem lenta e suave */
+}
+
+.historia-slide.ativo {
+  display: block;
+  opacity: 1;
+  animation: aparecerSuave 1.5s ease-in-out;
+}
+
+.historia-slide p {
+  color: #5c3317; /* Castanho quente a combinar com o seu site */
+  font-family: 'Georgia', serif;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Bolinhas discretas por baixo do texto */
+.historia-pontos {
+  margin-top: 15px;
+  display: flex;
+  gap: 8px;
+}
+
+.ponto {
+  width: 8px;
+  height: 8px;
+  background-color: #d4b08c;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.4s;
+}
+
+.ponto.ativo {
+  background-color: #7a3e13; /* Castanho mais escuro para o ponto ativo */
+}
+
+@keyframes aparecerSuave {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 
 

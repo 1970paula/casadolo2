@@ -54,9 +54,27 @@
                 <img src="{{ url_for('static', filename='pictures/avozinha.jpg')}}" alt="Avó">
                 <div class="polaroid-caption">Receitas Tradicionais desde 1946</div>
             </div>
-            <p style="text-align: center;">Fundada em 1946 pela Dona Maria, a Casa de Ló nasceu do amor pela doçaria tradicional Portuguesa.</p>
-            <p style="text-align: center;">Com receitas passadas de geração em geração, mantemos viva a tradição dos doces regionais de Portugal.</p>
-            <p style="text-align: center;">Visite-nos e saboreie os autênticos sabores que fazem parte da nossa história e da cultura Portuguesa.</p>
+            <div class="carrossel-historia">
+  <div class="historia-slide ativo">
+    <p>Fundada em 1946 pela Dona Maria, a <strong>Casa de Ló</strong> nasceu do amor pela doçaria tradicional Portuguesa.</p>
+  </div>
+  
+  <div class="historia-slide">
+    <p>Com receitas passadas de geração em geração, mantemos viva a tradição dos doces regionais de Portugal.</p>
+  </div>
+  
+  <div class="historia-slide">
+    <p>Visite-nos e saboreie os autênticos sabores que fazem parte da nossa história e da cultura Portuguesa. <em>Guardamos os sabores que a memória não esquece.</em></p>
+  </div>
+
+  <!-- Pequenos pontos indicadores por baixo do texto -->
+  <div class="historia-pontos">
+    <span class="ponto ativo" onclick="irParaFrase(0)"></span>
+    <span class="ponto" onclick="irParaFrase(1)"></span>
+    <span class="ponto" onclick="irParaFrase(2)"></span>
+  </div>
+</div>
+
 
             <section id="galeria">
             <h2>Galeria de Doces</h2>
@@ -351,7 +369,33 @@
           }, 50);
         }
       });
+  
+    let fraseAtual = 0;
+const slidesTexto = document.querySelectorAll('.historia-slide');
+const pontos = document.querySelectorAll('.ponto');
+
+function mostrarFrase(index) {
+  slidesTexto.forEach((slide, i) => {
+    slide.classList.remove('ativo');
+    pontos[i].classList.remove('ativo');
+  });
+
+  slidesTexto[index].classList.add('ativo');
+  pontos[index].classList.add('ativo');
+  fraseAtual = index;
+}
+
+function irParaFrase(index) {
+  mostrarFrase(index);
+}
+
+// Muda de frase automaticamente a cada 6 segundos (6000 ms)
+setInterval(() => {
+  let proxima = (fraseAtual + 1) % slidesTexto.length;
+  mostrarFrase(proxima);
+}, 6000);
+
     </script>
-    
+  
 </body>
 </html>
