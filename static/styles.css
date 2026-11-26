@@ -589,4 +589,43 @@ body::before {
   opacity: 0.85;
 }
 
- 
+ /* Efeito de Renda / Naperon nas Laterais Esquerda e Direita */
+html::before,
+html::after {
+  content: "";
+  position: fixed;
+  top: 22px; /* Começa logo abaixo da renda do topo */
+  bottom: 0;
+  width: 24px;
+  z-index: 999;
+  pointer-events: none; /* Garante que não bloqueia nenhum clique no ecrã */
+  opacity: 0.85;
+}
+
+/* Renda do Lado Esquerdo */
+html::before {
+  left: 0;
+  background: 
+    radial-gradient(circle at 0 12px, transparent 8px, #e8cbb1 9px, #e8cbb1 11px, transparent 12px),
+    radial-gradient(circle at 0 12px, #f5e2cf 8px, transparent 9px);
+  background-size: 22px 24px;
+  border-right: 1px dashed #b5651d;
+}
+
+/* Renda do Lado Direito */
+html::after {
+  right: 0;
+  background: 
+    radial-gradient(circle at 24px 12px, transparent 8px, #e8cbb1 9px, #e8cbb1 11px, transparent 12px),
+    radial-gradient(circle at 24px 12px, #f5e2cf 8px, transparent 9px);
+  background-size: 22px 24px;
+  border-left: 1px dashed #b5651d;
+}
+
+/* Esconde as rendas laterais em ecrãs de telemóvel para não apertar o conteúdo */
+@media (max-width: 768px) {
+  html::before,
+  html::after {
+    display: none;
+  }
+}
