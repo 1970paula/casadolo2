@@ -24,9 +24,7 @@
         <a href="{{ url_for('registo') }}" class="vintage-btn" style="background: #6c757d; padding: 6px 15px; font-size: 0.85em;">📝 Criar Conta</a>
     {% endif %}
 </div>
-
-  
-    <div class="container">
+  <div class="container">
         <header>
             <h1>Casa de Ló</h1>
             <div class="logo-container" style="text-align: center; margin-top: 10px;">
@@ -45,38 +43,51 @@
                 <!-- BOTÃO DO CARRINHO COM CONTADOR DINÂMICO -->
                 <a href="{{ url_for('carrinho')}}" class="vintage-btn">🛒 Carrinho ({{ quantidade }})</a>
 
-
             </div>
-
         </header>
-        <div class="vintage-border">
-            <div class="polaroid">
-                <img src="{{ url_for('static', filename='pictures/avozinha.jpg')}}" alt="Avó">
-                <div class="polaroid-caption">Receitas Tradicionais desde 1946</div>
-            </div>
-            <div class="carrossel-historia">
-  <div class="historia-slide ativo">
-    <p>Fundada em 1946 pela Dona Maria, a <strong>Casa de Ló</strong> nasceu do amor pela doçaria tradicional Portuguesa.</p>
-  </div>
-  
-  <div class="historia-slide">
-    <p>Com receitas passadas de geração em geração, mantemos viva a tradição dos doces regionais de Portugal.</p>
-  </div>
-  
-  <div class="historia-slide">
-    <p>Visite-nos e saboreie os autênticos sabores que fazem parte da nossa história e da cultura Portuguesa. <em>Guardamos os sabores que a memória não esquece.</em></p>
-  </div>
 
-  <!-- Pequenos pontos indicadores por baixo do texto -->
-  <div class="historia-pontos">
-    <span class="ponto ativo" onclick="irParaFrase(0)"></span>
-    <span class="ponto" onclick="irParaFrase(1)"></span>
-    <span class="ponto" onclick="irParaFrase(2)"></span>
-  </div>
-</div>
+      <div class="vintage-border">
+  <div class="apresentacao-hero">
+    
+    <!-- 1. Coluna da Esquerda: Foto da Avó -->
+    <div class="polaroid">
+      <img src="{{ url_for('static', filename='pictures/avozinha.jpg') }}" alt="Avó">
+      <div class="polaroid-caption">Receitas Tradicionais desde 1946</div>
+    </div>
 
+    <!-- 2. Coluna da Direita: Texto + Selos -->
+    <div class="hero-conteudo">
+      <div class="carrossel-historia">
+        <div class="historia-slide ativo">
+          <p>Fundada em 1946 pela Dona Maria, a <strong>Casa de Ló</strong> nasceu do amor pela doçaria tradicional Portuguesa.</p>
+        </div>
+        <div class="historia-slide">
+          <p>Com receitas passadas de geração em geração, mantemos viva a tradição dos doces regionais de Portugal.</p>
+        </div>
+        <div class="historia-slide">
+          <p>Visite-nos e saboreie os autênticos sabores que fazem parte da nossa história e da cultura Portuguesa.</p>
+        </div>
 
-            <section id="galeria">
+        <div class="historia-pontos">
+          <span class="ponto ativo" onclick="irParaFrase(0)"></span>
+          <span class="ponto" onclick="irParaFrase(1)"></span>
+          <span class="ponto" onclick="irParaFrase(2)"></span>
+        </div>
+      </div>
+
+      <div class="selos-qualidade">
+        <span>🌾 100% Artesanal</span>
+        <span>🥚 Ingredientes Naturais</span>
+        <span>📜 Tradição de 1946</span>
+      </div>
+    </div> <!-- Fecha hero-conteudo -->
+
+  </div> <!-- Fecha apresentacao-hero -->
+
+  <!-- 3. Só agora começa a Galeria de Doces -->
+ 
+  <section id="galeria">
+
             <h2>Galeria de Doces</h2>
                 
             <div class="gallery">

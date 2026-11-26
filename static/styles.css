@@ -380,6 +380,82 @@ section {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.apresentacao-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px 30px;
+  max-width: 950px;
+  margin: 0 auto 30px auto;
+  border-bottom: 2px dashed rgba(122, 62, 19, 0.25); /* Linha tracejada estilo livro de receitas */
+}
+
+.apresentacao-hero .polaroid {
+  flex-shrink: 0;
+  transform: rotate(-2deg);
+  transition: transform 0.4s ease;
+  box-shadow: 0 8px 18px rgba(74, 44, 24, 0.18);
+}
+
+.apresentacao-hero .polaroid:hover {
+  transform: rotate(0deg) scale(1.03);
+}
+
+.hero-conteudo {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-conteudo .carrossel-historia {
+  margin: 0 0 15px 0;
+  padding: 0;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.selos-qualidade {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.selos-qualidade span {
+  background-color: rgba(255, 255, 255, 0.55);
+  border: 1px solid #d4b08c;
+  color: #5c3317;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* Efeito suave nas imagens da Galeria de Doces */
+.gallery-item {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(74, 44, 24, 0.2);
+}
+
+/* No telemóvel volta a ficar um por baixo do outro */
+@media (max-width: 768px) {
+  .apresentacao-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-conteudo, .hero-conteudo .carrossel-historia {
+    align-items: center;
+    text-align: center;
+  }
+  .selos-qualidade {
+    justify-content: center;
+  }
+}
+
 
 
  
